@@ -2,7 +2,7 @@
 
 @section('content')
 
-<br>
+
 <div class="d-flex justify-content-center">
 <div class="card" style="width: 100%;">
 <div class="container">
@@ -35,10 +35,10 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">
-                                <i class="fas fa-solid fa-trash"></i>
+                                <i class="fa fa-solid fa-trash"></i>
                             </button>
                             <a href="{{ route('zakat.edit', $item->id) }}" class="btn btn-warning">
-                                <i class="fas fa-solid fa-pen"></i>
+                                <i class="fa fa-solid fa-pencil"></i>
                             </a>
                         </form>
 

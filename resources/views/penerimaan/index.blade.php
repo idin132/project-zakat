@@ -4,7 +4,7 @@
 
 <br>
 <div class="d-flex justify-content-center">
-<div class="card" style="width: 70rem;">
+<div class="card" style="width: 60rem;">
 <div class="container">
     <div class="text-center">
         <br><br>
@@ -39,12 +39,13 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
-                                  <i class="fas fa-solid fa-trash"></i>
+                                  <i class="fa fa-trash"></i>
                                 </button>
+                                <a href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
+                                    <i class="fa fa-pencil"></i>
+                                  </a>
                               </form>
-                        <a href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
-                                <i class="fas fa-solid fa-pen"></i>
-                              </a>
+                        
                     </td>
                 </tr>
                 @endforeach

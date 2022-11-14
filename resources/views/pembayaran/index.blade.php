@@ -3,7 +3,7 @@
 @section('content')
     <br>
     <div class="d-flex justify-content-center">
-        <div class="card" style="width: 70rem;">
+        <div class="card" style="width: 60rem;">
             <div class="container">
                 <div class="text-center">
                     <br><br>

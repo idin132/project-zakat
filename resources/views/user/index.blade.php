@@ -2,12 +2,10 @@
 
 @section('content')
 
-<br>
 <div class="d-flex justify-content-center">
 <div class="card" style="width: 100%;">
 <div class="container">
     <div class="text-center">
-        <br><br>
         <h3>Table User</h3>
     </div>
         <br>
@@ -19,8 +17,6 @@
                     <th>No</th>
                     <th>Nama Lengkap</th>
                     <th>Email</th>
-                    <th>Nomor Handphone</th>
-                    <th>Alamat</th>
                     <th>Username</th>
                     <th>Role</th>
                     <th>Action</th>
@@ -32,8 +28,6 @@
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->no_hp}}</td>
-                    <td>{{$item->alamat}}</td>
                     <td>{{$item->username}}</td>
                     <td>{{$item->role}}</td>
                     <td>
@@ -43,10 +37,10 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
-                                  <i class="fas fa-solid fa-trash"></i>
+                                  <i class="fa fa-solid fa-trash"></i>
                                 </button>
                                 <a href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
-                                    <i class="fas fa-solid fa-pen"></i>
+                                    <i class="fa fa-solid fa-pencil"></i>
                                 </a>
                               </form>
 

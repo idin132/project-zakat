@@ -117,6 +117,9 @@
                     <li class="nav-item">
                         <a href="{{ route('user.index') }}"><i class="nav-icon fa fa-cog mx-3"></i>User Management</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('profile') }}"><i class="nav-icon fa fa-cog mx-3"></i>Change Password</a>
+                    </li>
 
                     <!-- <li class="menu-title">Icons</li>/.menu-title -->
 
@@ -174,7 +177,7 @@
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        {{-- <button class="search-trigger"><i class="fa fa-search"></i></button> --}}
                         <div class="form-inline">
                             <form class="search-form">
                                 <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
@@ -182,7 +185,7 @@
                             </form>
                         </div>
 
-                        <div class="dropdown for-notification">
+                        {{-- <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-bell"></i>
                                 <span class="count bg-danger">3</span>
@@ -202,9 +205,9 @@
                                     <p>Server #3 overloaded.</p>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="dropdown for-message">
+                        {{-- <div class="dropdown for-message">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-envelope"></i>
                                 <span class="count bg-primary">4</span>
@@ -244,7 +247,7 @@
                                     </div>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div class="user-area dropdown float-right">
@@ -253,13 +256,18 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            {{-- <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a> --}}
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <div class="container">
+                                <form action="{{url('actionlogout')}}" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-dark">Logout</button>
+                                </form>
+                              </div>
                         </div>
                     </div>
 

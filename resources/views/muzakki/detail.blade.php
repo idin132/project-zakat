@@ -2,7 +2,6 @@
 
 
 @section('content')
-    <br><br><br><br>
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 50rem;">
@@ -20,7 +19,7 @@
                             <tr>
                                 <td>Nama Muzakki</td>
                                 <td>:</td>
-                                <td>{{ $item->nama_muzakki }}</td>
+                                <td>{{ $item->name}}</td>
                             </tr>
                             <tr>
                                 <td>Usia </td>
@@ -37,16 +36,6 @@
                                 <td>:</td>
                                 <td>{{ $item->alamat }}</td>
                             </tr>
-                            <tr>
-                                <td>Username </td>
-                                <td>:</td>
-                                <td>{{ $item->username }}</td>
-                            </tr>
-                            <tr>
-                                <td>Password</td>
-                                <td>:</td>
-                                <td>{{ $item->password }}</td>
-                            </tr>
                         </table>
                     @endforeach
                     <br>
@@ -57,9 +46,4 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center">
-        {{ $muzakki->links() }}
-        <br>
-    </div>
-    <br><br>
 @endsection

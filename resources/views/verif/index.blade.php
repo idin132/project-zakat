@@ -3,7 +3,7 @@
 @section('content')
 <br>
 <div class="d-flex justify-content-center">
-    <div class="card" style="width: 100%;">
+    <div class="card" style="width: 110%;">
         <div class="container">
             <div class="text-center">
                 <br><br>
@@ -45,11 +45,11 @@
 
                             <form action="{{ url('verif.index', $item->id) }}">
                                 <button type="submit" class="btn btn-primary btn-sm">Konfirmasi
-                                    <i class="fas fa-chevron-right"></i></button></a>
+                                    <i class="fa fa-chevron-right"></i></button></a>
                             </form>
                             <form action="">
                                 <button type="submit" class="btn btn-danger btn-sm">Tolak
-                                    <i class="fas fa-times"></i></button></a>
+                                    <i class="fa fa-times"></i></button></a>
                             </form>
 
                         </td>

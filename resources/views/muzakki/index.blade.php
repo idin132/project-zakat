@@ -2,18 +2,17 @@
 
 @section('content')
 
-<br>
+
 <div class="d-flex justify-content-center">
-<div class="card" style="width: 70rem;">
+<div class="card" style="width: 60rem;">
 <div class="container">
     <div class="text-center">
-        <br><br>
         <h3>Table Muzakki</h3>
     </div>
         <br>
         <a href="{{ route('muzakki.create') }}", class="btn btn-secondary">+</a>
         <br><br>
-        <table class="table" id="maintable">
+        <table class="table"id="maintable">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -37,8 +36,11 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">
-                                  <i class="fas fa-solid fa-trash"></i>
+                                  <i class="fa fa-trash"></i>
                                 </button>
+                                <a href="{{ route('muzakki.show', $muzakki->id) }}" class="btn btn-primary">
+                                    <i class="fa fa-info"></i>
+                                  </a>
                               </form>
                     </td>
                 </tr>
