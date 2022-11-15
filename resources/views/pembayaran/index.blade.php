@@ -15,11 +15,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Zakat</th>
-                            <th>Nama Muzakki</th>
+                            <th>Zakat</th>
+                            <th>Muzakki</th>
                             <th>Jumlah</th>
-                            <th>Metode Pembayaran</th>
+                            <th>Metode</th>
                             <th>Bukti</th>
+                            <th>Tanggal</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -39,6 +40,7 @@
                                             class="btn btn-dark">View</a>
                                     @endif
                                 </td>
+                                <td>{{ $item->metode_pembayaran }}</td>
                                 <td>
                                     <form action="{{ route('pembayaran.destroy', $item->id) }}" method="post">
                                         @csrf

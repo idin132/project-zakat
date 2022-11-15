@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class mustahiq extends Model
 {
     use HasFactory;
-    public $timestamps = false;
     protected $table = "mustahiq";
     protected $fillable = [
-        'nama_mustahiq', 'usia','alamat',
-
+        'nama_mustahiq',
+        'tgl_lahir', 
+         'usia',
+         'alamat',
+         'agama',
+         'pekerjaan',
+         'jumlah_anak',
+         'ashnaf',
     ];
 
     public function mustahiq(){

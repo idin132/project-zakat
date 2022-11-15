@@ -51,7 +51,7 @@ class PenerimaanController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'jumlah' => 'required',
-            'bukti' => 'required',
+            'bukti',
 
         ]);
 
@@ -111,7 +111,7 @@ class PenerimaanController extends Controller
             'nama' => 'required',
             'alamat' => 'required',
             'jumlah' => 'required',
-            'bukti' => 'required',
+            'bukti',
         ]);
 
         $penerimaan = penerimaan::where('id', $id)->first();

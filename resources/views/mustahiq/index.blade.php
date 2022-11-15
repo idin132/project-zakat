@@ -20,6 +20,7 @@
                     <th>Nama Mustahiq</th>
                     <th>Usia</th>
                     <th>Alamat</th>
+                    <th>Tanggal Masuk</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -30,6 +31,7 @@
                     <td>{{$item->nama_mustahiq}}</td>
                     <td>{{$item->usia}}</td>
                     <td>{{$item->alamat}}</td>
+                    <td>{{$item->created_at}}</td>
                     <td>
 
 

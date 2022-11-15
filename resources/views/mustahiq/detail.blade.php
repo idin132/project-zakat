@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <br><br><br><br>
+
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 50rem;">
@@ -23,6 +23,11 @@
                                 <td>{{ $item->nama_mustahiq }}</td>
                             </tr>
                             <tr>
+                                <td>Tempat, tanggal lahir</td>
+                                <td>:</td>
+                                <td>{{ $item->tgl_lahir }}</td>
+                            </tr>
+                            <tr>
                                 <td>Usia </td>
                                 <td>:</td>
                                 <td>{{ $item->usia }}</td>
@@ -32,9 +37,28 @@
                                 <td>:</td>
                                 <td>{{ $item->alamat }}</td>
                             </tr>
+                            <tr>
+                                <td>Agama</td>
+                                <td>:</td>
+                                <td>{{ $item->agama }}</td>
+                            </tr>
+                            <tr>
+                                <td>pekerjaan</td>
+                                <td>:</td>
+                                <td>{{ $item->pekerjaan }}</td>
+                            </tr>
+                            <tr>
+                                <td>jumlah anak</td>
+                                <td>:</td>
+                                <td>{{ $item->jumlah_anak }}</td>
+                            </tr>
+                            <tr>
+                                <td>ashnaf</td>
+                                <td>:</td>
+                                <td>{{ $item->ashnaf }}</td>
+                            </tr>
                         </table>
                     @endforeach
-                    <br>
                     <div class="d-flex justify-content-center">
                         <a href="{{ route('mustahiq.index') }}" class="btn btn-success">Kembali</a>
                     </div>

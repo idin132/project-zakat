@@ -15,7 +15,6 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Lengkap</th>
                     <th>Email</th>
                     <th>Username</th>
                     <th>Role</th>
@@ -26,7 +25,6 @@
             <tbody>
                 <tr>
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
                     <td>{{$item->username}}</td>
                     <td>{{$item->role}}</td>

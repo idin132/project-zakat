@@ -21,6 +21,7 @@
                     <th>Alamat</th>
                     <th>Jumlah</th>
                     <th>Bukti</th>
+                    <th>Tanggal</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -32,6 +33,7 @@
                     <td>{{$item->alamat}}</td>
                     <td>{{$item->jumlah}}</td>
                     <td>@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
+                    <td>{{$item->created_at}}</td>
                     <td>
 
 

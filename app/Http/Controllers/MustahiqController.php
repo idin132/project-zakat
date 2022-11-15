@@ -41,14 +41,24 @@ class MustahiqController extends Controller
     {
         $this->validate($request, [
             'nama_mustahiq' => 'required',
+            'tgl_lahir' => 'required',
             'usia' => 'required',
             'alamat' => 'required',
+            'agama' => 'required',
+            'pekerjaan' => 'required',
+            'jumlah_anak' => 'required',
+            'ashnaf' => 'required',
         ]);
 
         $mustahiqs = mustahiq::create([
             'nama_mustahiq' => $request->nama_mustahiq,
+            'tgl_lahir' => $request->tgl_lahir,
             'usia' => $request->usia,
             'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'pekerjaan' => $request->pekerjaan,
+            'jumlah_anak' => $request->jumlah_anak,
+            'ashnaf' => $request->ashnaf,
         ]);
 
         return redirect()->route('mustahiq.index');
@@ -91,8 +101,13 @@ class MustahiqController extends Controller
     {
         $this->validate($request, [
             'nama_mustahiq' => 'required',
+            'tgl_lahir' => 'required',
             'usia' => 'required',
             'alamat' => 'required',
+            'agama' => 'required',
+            'pekerjaan' => 'required',
+            'jumlah_anak' => 'required',
+            'ashnaf' => 'required',
         ]);
 
         $mustahiqs = mustahiq::where('id', $id);

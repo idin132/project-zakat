@@ -22,6 +22,11 @@
                                 <td>{{ $item->name}}</td>
                             </tr>
                             <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td>{{ $item->email}}</td>
+                            </tr>
+                            <tr>
                                 <td>Usia </td>
                                 <td>:</td>
                                 <td>{{ $item->usia }}</td>

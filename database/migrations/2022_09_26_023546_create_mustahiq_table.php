@@ -16,8 +16,14 @@ return new class extends Migration
         Schema::create('mustahiq', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mustahiq');
+            $table->string('tgl_lahir');
             $table->string('usia');
             $table->string('alamat');
+            $table->string('agama');
+            $table->string('pekerjaan');
+            $table->string('jumlah_anak');
+            $table->string('ashnaf');
+            $table->timestamps();
         });
     }
 
