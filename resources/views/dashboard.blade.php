@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8 w-100">
+            <div class="col">
                 <div class="card text-end">
                     <div class="card-body">
                         @if (session('status'))
@@ -15,7 +15,7 @@
                         <div class="container">
                             <div class="row text-end">
 
-                                <div class="col-md-6 mb-3">
+                                <div class="col">
                                     <div class="card text-white bg-dark">
                                         <div class="card-header">
                                             <div class="bi bi-people-fill">
@@ -28,9 +28,6 @@
                                             <p class="card-text justify-content-end"></p>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
                                     <div class="card text-white bg-dark">
                                         <div class="card-header">
                                             <div class="bi bi-people-fill">
@@ -45,7 +42,9 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
+                                
+
+                                <div class="col">
                                     <div class="card text-white bg-secondary">
                                         <div class="card-header">
                                             <div class="bi bi-cloud-arrow-down">
@@ -58,21 +57,6 @@
                                             <p class="card-text justify-content-end"></p>
                                         </div>
                                     </div>
-                                    <div class="card text-white bg-dark">
-                                        <div class="card-header">
-                                            <div class="bi bi-people-fill text-center">
-                                                Total Donasi Terkumpul
-                                            </div>
-                                        </div>
-                                        <div class="card-body text-center">
-                                            Rp. {{ number_format($total_donasi) }}
-                                            <h5 class="card-title"></h5>
-                                            <p class="card-text justify-content-end"></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6 mb-3">
                                     <div class="card text-white bg-secondary">
                                         <div class="card-header ">
                                             <div class="bi bi-cash-coin">
@@ -86,6 +70,21 @@
                                             <p class="card-text justify-content-end"></p>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-dark">
+                                        <div class="card-header">
+                                            <div class="bi bi-people-fill text-center">
+                                                Total Donasi Terkumpul
+                                            </div>
+                                        </div>
+                                        <div class="card-body text-center">
+                                            Rp. {{ number_format($total_donasi) }}
+                                            <h5 class="card-title"></h5>
+                                            <p class="card-text justify-content-end"></p>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="card text-white bg-dark">
                                         <div class="card-header">
                                             <div class="bi bi-people-fill text-center">
