@@ -119,9 +119,6 @@
                     <li class="nav-item">
                         <a href="{{ route('user.index') }}"><i class="nav-icon fa fa-cog mx-3"></i>User Management</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('profile') }}"><i class="nav-icon fa fa-cog mx-3"></i>Change Password</a>
-                    </li>
 
                     <!-- <li class="menu-title">Icons</li>/.menu-title -->
 
