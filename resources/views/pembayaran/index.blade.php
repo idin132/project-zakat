@@ -24,8 +24,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    @foreach ($pembayarans as $key => $item)
-                        <tbody>
+                    <tbody>
+                            @foreach ($pembayarans as $key => $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->nama_zakat }}</td>

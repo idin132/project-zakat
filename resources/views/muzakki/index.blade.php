@@ -12,7 +12,7 @@
         <br>
         <a href="{{ route('muzakki.create') }}", class="btn btn-secondary">+</a>
         <br><br>
-        <table class="table"id="maintable">
+        <table class="table" id="maintable">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -22,8 +22,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            @foreach ($muzakkis as $key=>$muzakki)
             <tbody>
+                @foreach ($muzakkis as $key=>$muzakki)
                 <tr>
                     <td>{{$muzakki->id}}</td>
                     <td>{{$muzakki->name}}</td>
@@ -50,8 +50,6 @@
 </div>
 </div>
 </div>
-<script>
-    
-</script>
+
     
 @endsection

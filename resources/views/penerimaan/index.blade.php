@@ -25,8 +25,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            @foreach ($penerimaan as $key=>$item)
             <tbody>
+                @foreach ($penerimaan as $key=>$item)
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->nama}}</td>

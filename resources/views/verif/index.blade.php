@@ -25,8 +25,8 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                @foreach ($verif as $key => $item)
                 <tbody>
+                    @foreach ($verif as $key => $item)
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->nama_zakat }}</td>

@@ -22,8 +22,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            @foreach ($zakats as $key=>$item)
             <tbody>
+                @foreach ($zakats as $key=>$item)
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->id_zakat}}</td>
