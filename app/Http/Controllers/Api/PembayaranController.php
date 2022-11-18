@@ -33,21 +33,30 @@ class PembayaranController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
             'nama_zakat' => 'required',
-            'nama_muzakki' => 'required',
+            'nama_mustahiq' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
+            'bukti_pembayaran' => 'required',
+            'status' => 'required'
         ]);
 
         //check if validation fails
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
+
+        // upload image
+        $image = $request->file('bukti_pembayaran');
+        $image->storeAs('public/foto', $image->hashName());
+
         //create post
         $pembayaran = pembayaran::create([
             'nama_zakat' => $request->nama_zakat,
             'nama_muzakki' => $request->nama_muzakki,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
+            'bukti_pembayaran' => $image->hashName(),
+            'status' => $request->status,
         ]);
 
         //return response
@@ -65,9 +74,11 @@ class PembayaranController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
             'nama_zakat' => 'required',
-            'nama_muzakki' => 'required',
+            'nama_mustahiq' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
+            'bukti_pembayaran' => 'required',
+            'status' => 'required'
         ]);
 
         //check if validation fails
@@ -80,10 +91,12 @@ class PembayaranController extends Controller
 
             //update
             $pembayaran->update([
-                'nama_zakat' => $request->nama_zakat,
-                'nama_muzakki' => $request->nama_muzakki,
-                'jumlah' => $request->jumlah,
-                'metode_pembayaran' => $request->metode_pembayaran,
+            'nama_zakat' => $request->nama_zakat,
+            'nama_muzakki' => $request->nama_muzakki,
+            'jumlah' => $request->jumlah,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'bukti_pembayaran' => $image->hashName(),
+            'status' => $request->status,
             ]);
         }
 

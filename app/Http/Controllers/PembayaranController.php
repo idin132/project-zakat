@@ -113,11 +113,12 @@ class PembayaranController extends Controller
      public function update(Request $request, $id)
      {
          $this->validate($request, [
-             'nama_zakat' => 'required',
-             'nama_muzakki' => 'required',
-             'jumlah' => 'required',
-             'metode_pembayaran' => 'required',
-             'bukti_pembayaran' => 'required',
+            'nama_zakat' => 'required',
+            'nama_mustahiq' => 'required',
+            'jumlah' => 'required',
+            'metode_pembayaran' => 'required',
+            'bukti_pembayaran' => 'required',
+            'status' => 'required',
          ]);
 
          $pembayarans = pembayaran::where('id', $id);
