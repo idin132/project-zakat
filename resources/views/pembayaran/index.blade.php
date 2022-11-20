@@ -40,7 +40,7 @@
                                             class="btn btn-dark">View</a>
                                     @endif
                                 </td>
-                                <td>{{ $item->metode_pembayaran }}</td>
+                                <td>{{ $item->created_at }}</td>
                                 <td>
                                     <form action="{{ route('pembayaran.destroy', $item->id) }}" method="post">
                                         @csrf

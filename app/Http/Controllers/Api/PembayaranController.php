@@ -33,11 +33,10 @@ class PembayaranController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
-            'status' => 'required'
         ]);
 
         //check if validation fails
@@ -56,7 +55,6 @@ class PembayaranController extends Controller
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
             'bukti_pembayaran' => $image->hashName(),
-            'status' => $request->status,
         ]);
 
         //return response
@@ -74,11 +72,10 @@ class PembayaranController extends Controller
         //define validation rules
         $validator = Validator::make($request->all(), [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
-            'status' => 'required'
         ]);
 
         //check if validation fails
@@ -96,7 +93,6 @@ class PembayaranController extends Controller
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
             'bukti_pembayaran' => $image->hashName(),
-            'status' => $request->status,
             ]);
         }
 

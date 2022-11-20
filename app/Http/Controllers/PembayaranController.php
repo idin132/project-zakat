@@ -139,4 +139,21 @@ class PembayaranController extends Controller
         $pembayarans->delete();
         return to_route('pembayaranp.index')->with('hapus data berhasil>');
     }
+
+    public function status ($id) {
+        $pembayarans = pembayaran::where('id', $id)->first();   
+        $status = $pembayarans->status;
+
+        if($status == 1) {
+            pembayaran::where('id', $id)->update([
+                'status'=> 0 
+            ]);
+        }else{
+            pembayaran::where('id', $id)->update([
+                'status'=> 1
+        ]);
+
+        }
+            return back()->with('pesan', 'status sudah diupdate');
+    }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jumlah');
             $table->string('metode_pembayaran');
             $table->string('bukti_pembayaran');
-            $table->string('status')->default('Pending');
+            $table->string('status')->default('1');
             $table->timestamps();
         });
     }

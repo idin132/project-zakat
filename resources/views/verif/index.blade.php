@@ -40,17 +40,12 @@
                             <a href="{{ url('storage/foto/' . $item->bukti_pembayaran) }}" target="_blank" class="btn btn-dark">View</a>
                             @endif
                         </td>
-                        <td>{{ $item->status }}</td>
+                        <td><button class="btn {{ ($item->status === 1) ? 'btn-primary' : 'btn-sm btn-danger' }}">
+                             {{ ($item->status == 1) ? 'pending' : 'dikonfirmasi' }}</button></td>
                         <td>
-
-                            <form action="{{ url('verif.index', $item->id) }}">
-                                <button type="submit" class="btn btn-primary btn-sm">Konfirmasi
-                                    <i class="fa fa-chevron-right"></i></button></a>
-                            </form>
-                            <form action="">
-                                <button type="submit" class="btn btn-danger btn-sm">Tolak
-                                    <i class="fa fa-times"></i></button></a>
-                            </form>
+                            @if($item->status == 1)
+                            <a href="{{ url('status',$item->id)}}" class="btn btn-sm btn-danger">konfirmasi</a>
+                            @endif
 
                         </td>
                     </tr>
