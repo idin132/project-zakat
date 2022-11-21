@@ -40,13 +40,23 @@
                             <a href="{{ url('storage/foto/' . $item->bukti_pembayaran) }}" target="_blank" class="btn btn-dark">View</a>
                             @endif
                         </td>
-                        <td><button class="btn {{ ($item->status === 1) ? 'btn-primary' : 'btn-sm btn-danger' }}">
-                             {{ ($item->status == 1) ? 'pending' : 'dikonfirmasi' }}</button></td>
+                        <td><label class="label {{ ($item->status == 1) ? 'label-success' : 'label-danger' }}">
+                             {{ ($item->status == 1) ? 'Pending' : 'Selesai' }}</label></td>
                         <td>
-                            @if($item->status == 1)
-                            <a href="{{ url('status',$item->id)}}" class="btn btn-sm btn-danger">konfirmasi</a>
+                            <div>
+                                @if($item->status == 1)
+                            <a href="{{ url('status',$item->id)}}">
+                                <button class="btn btn-success">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                            </a>
+                            <a href="/">
+                                <button class="btn btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </a>
                             @endif
-
+                            </div>
                         </td>
                     </tr>
                     @endforeach
