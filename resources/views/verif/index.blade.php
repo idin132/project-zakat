@@ -43,14 +43,20 @@
                         <td><label class="label {{ ($item->status == 1) ? 'label-success' : 'label-danger' }}">
                              {{ ($item->status == 1) ? 'Pending' : 'Selesai' }}</label></td>
                         <td>
-                            <div>
+                            <div class="d-flex justify-content-center">
                                 @if($item->status == 1)
                             <a href="{{ url('status',$item->id)}}">
-                                <button class="btn btn-success">
+                                <button class="btn btn-success mx-2">
                                     <i class="fa fa-check"></i>
                                 </button>
                             </a>
                             <a href="/">
+                                <button class="btn btn-danger">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </a>
+                            @else
+                            <a href="{{ url('status',$item->id)}}">
                                 <button class="btn btn-danger">
                                     <i class="fa fa-times"></i>
                                 </button>
