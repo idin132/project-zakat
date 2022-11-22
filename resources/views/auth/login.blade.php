@@ -10,6 +10,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
+    <link rel="apple-touch-icon" href="{{ asset('images/zakat.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/zakat.png') }}">
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <style>
         .gradient-custom {
@@ -67,12 +69,6 @@
                                 </div>
 
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
-                                <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                                    <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                                    <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                    <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-                                </div>
 
                             </div>
 
