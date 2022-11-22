@@ -11,7 +11,7 @@
                 </div>
                 <br>
                 <br><br>
-                <table class="table table-striped ">
+                <table class="table" id="maintable">
                     <thead>
                         <tr>
                             <th>No</th>

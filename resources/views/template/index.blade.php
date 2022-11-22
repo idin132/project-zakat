@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}"> -->
+    <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
@@ -32,17 +32,17 @@
                 <ul class="nav navbar-nav">
                     
                     <li class="nav-item">
-                        <a href="/"><i class="nav-icon fa fa-laptop mx-3"></i>Dashboard </a>
+                        <a href="/"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="nav-icon fa fa-user mx-3"></i>Mustahiq</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Mustahiq</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-user"></i><a href="{{ route('mustahiq.index') }}">Biodata</a></li>
                             <li><i class="fa fa-money"></i><a href="{{ route('penerimaan.index') }}">Penerimaan</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="nav-icon fa fa-user mx-3"></i>Muzakki</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Muzakki</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-user"></i><a href="{{ route('muzakki.index') }}">Biodata</a></li>
                             <li><i class="menu-icon fa fa-credit-card-alt"></i><a href="{{ route('pembayaran.index') }}">Pembayaran</a></li>
@@ -50,15 +50,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('zakat.index') }}"><i class="nav-icon fa fa-handshake-o mx-3"></i>Zakat</a>
+                        <a href="{{ route('zakat.index') }}"><i class="menu-icon fa fa-handshake-o"></i>Zakat</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('verif.index') }}"><i class="nav-icon fa fa-money mx-3"></i>Verifikasi Pembayaran</a>
+                        <a href="{{ route('verif.index') }}"><i class="menu-icon fa fa-money"></i>Verifikasi Pembayaran</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('user.index') }}"><i class="nav-icon fa fa-cog mx-3"></i>User Management</a>
+                        <a href="{{ route('user.index') }}"><i class="menu-icon fa fa-cog"></i>User Management</a>
                     </li>
 
                 </ul>
@@ -73,7 +73,7 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="./"><img src="{{asset('images/logo_zakat.jpeg')}}" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="{{asset('images/logo2.png')}}" alt="Logo"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="{{asset('images/logo_zakat.jpeg')}}" alt="Logo"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
