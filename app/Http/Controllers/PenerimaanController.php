@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\penerimaan;
 use App\Models\mustahiq;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PenerimaanExport;
 use Illuminate\Support\Facades\Storage;
 
 class PenerimaanController extends Controller
@@ -48,9 +50,18 @@ class PenerimaanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'nik' => 'required',
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tgl_lahir' => 'required',
             'alamat' => 'required',
+            'agama' => 'required',
+            'pekerjaan' => 'required',
+            'penghasilan' => 'required',
+            'jumlah_anak' => 'required',
+            'jenis_zakat' => 'required',
             'jumlah' => 'required',
+            'ashnaf' => 'required',
             'bukti',
 
         ]);
@@ -59,9 +70,18 @@ class PenerimaanController extends Controller
         $image->storeAs('public/foto', $image->hashName());
 
         $penerimaan = penerimaan::create([
+            'nik' => $request->nik,
             'nama' => $request->nama,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
+            'agama' => $request->agama,
+            'pekerjaan' => $request->pekerjaan,
+            'penghasilan' => $request->penghasilan,
+            'jumlah_anak' => $request->jumlah_anak,
+            'jenis_zakat' => $request->jenis_zakat,
             'jumlah' => $request->jumlah,
+            'ashnaf' => $request->ashnaf,
             'bukti' => $image->hashName(),
         ]);
 
@@ -108,9 +128,18 @@ class PenerimaanController extends Controller
     {
 
         $this->validate($request, [
+            'nik' => 'required',
             'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tgl_lahir' => 'required',
             'alamat' => 'required',
+            'agama' => 'required',
+            'pekerjaan' => 'required',
+            'penghasilan' => 'required',
+            'jumlah_anak' => 'required',
+            'jenis_zakat' => 'required',
             'jumlah' => 'required',
+            'ashnaf' => 'required',
             'bukti',
         ]);
 
@@ -119,9 +148,18 @@ class PenerimaanController extends Controller
         if ($request->file('bukti') == "") {
 
             $penerimaan->update([
+                'nik' => $request->nik,
                 'nama' => $request->nama,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tgl_lahir' => $request->tgl_lahir,
                 'alamat' => $request->alamat,
+                'agama' => $request->agama,
+                'pekerjaan' => $request->pekerjaan,
+                'penghasilan' => $request->penghasilan,
+                'jumlah_anak' => $request->jumlah_anak,
+                'jenis_zakat' => $request->jenis_zakat,
                 'jumlah' => $request->jumlah,
+                'ashnaf' => $request->ashnaf,
 
             ]);
         } else {
@@ -132,10 +170,18 @@ class PenerimaanController extends Controller
 
             $penerimaan->update([
                 'bukti' => $image->hashName(),
+                'nik' => $request->nik,
                 'nama' => $request->nama,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tgl_lahir' => $request->tgl_lahir,
                 'alamat' => $request->alamat,
+                'agama' => $request->agama,
+                'pekerjaan' => $request->pekerjaan,
+                'penghasilan' => $request->penghasilan,
+                'jumlah_anak' => $request->jumlah_anak,
+                'jenis_zakat' => $request->jenis_zakat,
                 'jumlah' => $request->jumlah,
-
+                'ashnaf' => $request->ashnaf,
             ]);
         }
 
@@ -158,5 +204,10 @@ class PenerimaanController extends Controller
         $penerimaan->delete();
         Storage::delete('public/storage/foto/' . $penerimaan->bukti);
         return to_route('penerimaan.index')->with('hapus data berhasil>');
+    }
+
+    public function export()
+    {
+        return Excel::download(new PenerimaanExport, 'penerimaan.xlsx');
     }
 }

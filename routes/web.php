@@ -11,6 +11,7 @@ use App\Http\Controllers\PenerimaanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerifController;
 use App\Http\Controllers\CpwController;
+use App\Http\Controllers\LaporanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,14 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('user', UserController::class);
         Route::get('update', [UserController::class], 'update')->name('user.');
         Route::get('status/{id}', [PembayaranController::class, 'status']);
+        Route::get('export',[PembayaranController::class, 'export'])->name('pembayaran.export');
+        Route::resource('verif', VerifController::class);
+        Route::resource('laporan', LaporanController::class);
+        Route::get('print',[MustahiqController::class, 'export'])->name('mustahiq.export');
+        Route::get('print/penerimaan',[PenerimaanController::class, 'export'])->name('penerimaan.export');
+
+
+
 
 });
 

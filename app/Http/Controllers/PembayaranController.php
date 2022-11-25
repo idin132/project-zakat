@@ -6,6 +6,10 @@ use App\Models\muzakki;
 use Illuminate\Http\Request;
 use App\Models\pembayaran;
 use App\Models\zakat;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PembayaranExport;
+use Illuminate\Support\Facades\Storage;
+
 
 class PembayaranController extends Controller
 {
@@ -155,5 +159,12 @@ class PembayaranController extends Controller
 
         }
             return back()->with('pesan', 'status sudah diupdate');
+    }
+
+    public function export()
+    {
+        // $export = 'suratmasuk-' . date('Y-m-d') . '.xlsx';
+        return Excel::download(new PembayaranExport, 'pembayaran.xlsx');
+        // return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

@@ -10,12 +10,14 @@ class mustahiq extends Model
     use HasFactory;
     protected $table = "mustahiq";
     protected $fillable = [
+        'nik',
         'nama_mustahiq',
+        'jenis_kelamin',
         'tgl_lahir', 
-         'usia',
          'alamat',
          'agama',
          'pekerjaan',
+         'penghasilan',
          'jumlah_anak',
          'ashnaf',
     ];

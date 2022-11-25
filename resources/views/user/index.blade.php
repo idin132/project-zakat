@@ -5,15 +5,23 @@
 <div class="d-flex justify-content-center">
 <div class="card" style="width: 100%;">
 <div class="container">
-    <div class="text-center">
-        <h3>Table User</h3>
-    </div>
         <br>
-        <a href="{{ route('user.create') }}", class="btn btn-secondary">+</a>
-        <br><br>
+        <a href="{{ route('user.create') }}", class="text-white">
+        <div  style="font-size: 12px" class="col-md-12 mb-3">
+            <div class="card text-white" style="background-color: green;">
+                <div class="card-body text-center h9">
+                    <h9 class="card-title">Tambah Data</h9>
+                    <p class="card-text justify-content-end"></p>
+                </div>
+            </div>
+        </div>
+        </a>
+       
+        <!-- <a href="{{ route('user.create') }}", class="btn btn-secondary">+</a> -->
+        
         <table class="table" id="maintable">
             <thead>
-                <tr>
+                <tr style="font-size: 12px">
                     <th>No</th>
                     <th>Email</th>
                     <th>Username</th>
@@ -24,20 +32,20 @@
             <tbody>
                 @foreach ($users as $key=>$item)
                 <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->email}}</td>
-                    <td>{{$item->username}}</td>
-                    <td>{{$item->role}}</td>
+                    <td style="font-size: 12px">{{$item->id}}</td>
+                    <td style="font-size: 12px">{{$item->email}}</td>
+                    <td style="font-size: 12px">{{$item->username}}</td>
+                    <td style="font-size: 12px">{{$item->role}}</td>
                     <td>
 
 
                         <form action="{{ route('user.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button style="font-size: 12px" type="submit" class="btn btn-danger">
                                   <i class="fa fa-solid fa-trash"></i>
                                 </button>
-                                <a href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
+                                <a style="font-size: 12px" href="{{route ('user.edit', $item->id)}}" class="btn btn-warning">
                                     <i class="fa fa-solid fa-pencil"></i>
                                 </a>
                               </form>

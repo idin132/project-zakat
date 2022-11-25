@@ -6,19 +6,34 @@
 <div class="d-flex justify-content-center">
 <div class="card" style="width: 60rem;">
 <div class="container">
-    <div class="text-center">
-        <br><br>
-        <h3>Table Penerimaan</h3>
-    </div>
         <br>
-        <a href="{{ route('penerimaan.create') }}", class="btn btn-secondary">+</a>
-        <br><br>
+        <a href="{{ route('penerimaan.create') }}", class="">
+        <div  style="font-size: 12px" class="col-md-12 mb-3">
+            <div  class="card text-white" style="background-color: green;">
+                <div class="card-body text-center h9">
+                    <h9 class="card-title">Tambah Data</h9>
+                    <p class="card-text justify-content-end"></p>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="{{ route('penerimaan.export') }}", class="text-white">
+        <div  style="font-size: 12px" class="col-md-12 mb-3">
+            <div class="card text-white" style="background-color: grey;">
+                <div class="card-body text-center h9">
+                    <h9 class="card-title">Print</h9>
+                    <p class="card-text justify-content-end"></p>
+                </div>
+            </div>
+        </div>
+        </a>
         <table class="table" id="maintable">
             <thead>
-                <tr>
+                <tr  style="font-size: 12px">
                     <th>NO</th>
                     <th>Nama</th>
                     <th>Alamat</th>
+                    <th>Zakat</th>
                     <th>Jumlah</th>
                     <th>Bukti</th>
                     <th>Tanggal</th>
@@ -28,22 +43,23 @@
             <tbody>
                 @foreach ($penerimaan as $key=>$item)
                 <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->nama}}</td>
-                    <td>{{$item->alamat}}</td>
-                    <td>{{$item->jumlah}}</td>
-                    <td>@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
-                    <td>{{$item->created_at}}</td>
+                    <td  style="font-size: 12px">{{$item->id}}</td>
+                    <td  style="font-size: 12px">{{$item->nama}}</td>
+                    <td  style="font-size: 12px">{{$item->alamat}}</td>
+                    <td  style="font-size: 12px">{{$item->jenis_zakat}}</td>
+                    <td  style="font-size: 12px">{{$item->jumlah}}</td>
+                    <td  style="font-size: 12px">@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
+                    <td  style="font-size: 12px">{{$item->created_at}}</td>
                     <td>
 
 
                         <form action="{{ route ('penerimaan.destroy', $item->id) }} " method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button  style="font-size: 12px" type="submit" class="btn btn-danger">
                                   <i class="fa fa-trash"></i>
                                 </button>
-                                <a href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
+                                <a  style="font-size: 12px" href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
                                     <i class="fa fa-pencil"></i>
                                   </a>
                               </form>
