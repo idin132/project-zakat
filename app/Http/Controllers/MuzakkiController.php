@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MuzakkiExport;
 
 class MuzakkiController extends Controller
 {
@@ -39,19 +43,33 @@ class MuzakkiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'nik' => 'required',
             'name' => 'required',
-            'email' => 'required',
+            'jenis_kelamin' => 'required',
+            'nomor_rekening' => 'required',
+            'tgl_lahir' => 'required',
+            'email',
             'no_hp' => 'required',
             'alamat' => 'required',
-            'username' => 'required',
-            'password' => 'required',
+            'pekerjaan' => 'required',
+            'penghasilan' => 'required',
+            'status' => 'required',
+            'username',
+            'password',
         ]);
 
         $muzakkis = User::create([
+            'nik' => $request->nik,
             'name' => $request->name,
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'nomor_rekening' => $request->nomor_rekening,
+            'tgl_lahir' => $request->tgl_lahir,
             'email' => $request->email,
             'no_hp' => $request->no_hp,
             'alamat' => $request->alamat,
+            'pekerjaan' => $request->pekerjaan,
+            'penghasilan' => $request->penghasilan,
+            'status' => $request->status,
             'username' => $request->username,
             'password' => $request->password,
         ]);
@@ -68,8 +86,8 @@ class MuzakkiController extends Controller
 
     public function show($id)
     {
-        $muzakki = User::oldest('id')->simplepaginate(1);
-        return view('muzakki.detail', compact('muzakki'));
+        $muzakki = User::where('id', $id)->first();
+        return view('muzakki.detail', compact('muzakki'));  
     }
 
     /**
@@ -98,12 +116,19 @@ class MuzakkiController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'nik' => 'required',
             'name' => 'required',
-            'email' => 'required',
+            'jenis_kelamin' => 'required',
+            'nomor_rekening' => 'required',
+            'tgl_lahir' => 'required',
+            'email',
             'no_hp' => 'required',
             'alamat' => 'required',
-            'username' => 'required',
-            'password' => 'required',
+            'pekerjaan' => 'required',
+            'penghasilan' => 'required',
+            'status' => 'required',
+            'username',
+            'password',
         ]);
 
         $muzakki = User::where('id', $id);
@@ -123,5 +148,10 @@ class MuzakkiController extends Controller
         $muzakki = User::find($id);
         $muzakki->delete();
         return to_route('muzakki.index')->with('hapus data berhasil>');
+    }
+
+    public function export()
+    {
+        return Excel::download(new MuzakkiExport, 'Muzakki.xlsx');
     }
 }

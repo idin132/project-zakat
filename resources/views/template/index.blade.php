@@ -60,6 +60,7 @@
                     <li class="nav-item">
                         <a href="{{ route('user.index') }}"><i class="menu-icon fa fa-cog"></i>User Management</a>
                     </li>
+                    
 
                 </ul>
             </div><!-- /.navbar-collapse -->

@@ -12,6 +12,7 @@ class penerimaan extends Model
     protected $fillable = [
         'nama',
         'alamat',
+        'jenis_zakat',
         'jumlah',
         'bukti',
 

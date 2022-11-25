@@ -4,21 +4,35 @@
 
 <br>
 <div class="d-flex justify-content-center">
-<div class="card" style="width: 60rem;">
+<div class="card" style="width: 100%;">
 <div class="container">
-    <div class="text-center">
-        <br><br>
-        <h3>Table Mustahiq</h3>
-    </div>
         <br>
-        <a href="{{route('mustahiq.create')}}" class="btn btn-secondary">+</a>
-        <br><br>
+        <a href="{{route('mustahiq.create')}}" class="">
+        <div  style="font-size: 12px" class="col-md-12 mb-3">
+            <div class="card text-white" style="background-color: green;">
+                <div class="card-body text-center h9">
+                    <h9 class="card-title">Tambah Data</h9>
+                    <p class="card-text justify-content-end"></p>
+                </div>
+            </div>
+        </div>
+        </a>
+        <a href="{{ route('mustahiq.export') }}", class="text-white">
+        <div  style="font-size: 12px" class="col-md-12 mb-3">
+            <div class="card text-white" style="background-color: grey;">
+                <div class="card-body text-center h9">
+                    <h9 class="card-title">Print</h9>
+                    <p class="card-text justify-content-end"></p>
+                </div>
+            </div>
+        </div>
+        </a>
         <table class="table"id="maintable">
             <thead>
-                <tr>
+                <tr style="font-size: 12px">
                     <th>NO</th>
                     <th>Nama Mustahiq</th>
-                    <th>Usia</th>
+                    <th>Tanggal Lahir</th>
                     <th>Alamat</th>
                     <th>Tanggal Masuk</th>
                     <th>Action</th>
@@ -27,24 +41,24 @@
             <tbody>
                 @foreach ($mustahiqs as $key=>$item)
                 <tr>
-                    <td>{{$item->id}}</td>
-                    <td>{{$item->nama_mustahiq}}</td>
-                    <td>{{$item->usia}}</td>
-                    <td>{{$item->alamat}}</td>
-                    <td>{{$item->created_at}}</td>
+                    <td style="font-size: 12px">{{$item->id}}</td>
+                    <td style="font-size: 12px">{{$item->nama_mustahiq}}</td>
+                    <td style="font-size: 12px">{{$item->tgl_lahir}}</td>
+                    <td style="font-size: 12px">{{$item->alamat}}</td>
+                    <td style="font-size: 12px">{{$item->created_at}}</td>
                     <td>
 
 
                         <form action="{{ route('mustahiq.destroy', $item->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">
+                                <button style="font-size: 12px" type="submit" class="btn btn-danger">
                                   <i class="fa fa-trash"></i>
                                 </button>
-                                <a href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
+                                <a style="font-size: 12px" href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
                                 <i class="fa fa-pencil"></i>
                               </a>
-                              <a href="{{ route('mustahiq.show', $item->id) }}" class="btn btn-primary">
+                              <a style="font-size: 12px" href="{{ route('mustahiq.show', $item->id) }}" class="btn btn-primary">
                                 <i class="fa fa-info"></i>
                               </a>
                               

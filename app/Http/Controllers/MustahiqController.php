@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\mustahiq;
 use App\Models\muzakki;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MustahiqExport;
 
 class MustahiqController extends Controller
 {
@@ -40,23 +43,27 @@ class MustahiqController extends Controller
     public function store (Request $request)
     {
         $this->validate($request, [
+            'nik' => 'required',
             'nama_mustahiq' => 'required',
+            'jenis_kelamin' => 'required',
             'tgl_lahir' => 'required',
-            'usia' => 'required',
             'alamat' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
+            'penghasilan' => 'required',
             'jumlah_anak' => 'required',
             'ashnaf' => 'required',
         ]);
 
         $mustahiqs = mustahiq::create([
+            'nik' => $request->nik,
             'nama_mustahiq' => $request->nama_mustahiq,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'tgl_lahir' => $request->tgl_lahir,
-            'usia' => $request->usia,
             'alamat' => $request->alamat,
             'agama' => $request->agama,
             'pekerjaan' => $request->pekerjaan,
+            'penghasilan' => $request->penghasilan,
             'jumlah_anak' => $request->jumlah_anak,
             'ashnaf' => $request->ashnaf,
         ]);
@@ -72,8 +79,8 @@ class MustahiqController extends Controller
      */
     public function show ($id)
     {
-        $mustahiqs = mustahiq::oldest('id')->simplepaginate(1);
-        return view('mustahiq.detail', compact('mustahiqs'));
+        $mustahiqs = mustahiq::where('id', $id)->first();
+        return view('mustahiq.detail', compact('mustahiqs'));  
     }
 
      /**
@@ -100,12 +107,14 @@ class MustahiqController extends Controller
     public function update (Request $request, $id)
     {
         $this->validate($request, [
+            'nik' => 'required',
             'nama_mustahiq' => 'required',
+            'jenis_kelamin' => 'required',
             'tgl_lahir' => 'required',
-            'usia' => 'required',
             'alamat' => 'required',
             'agama' => 'required',
             'pekerjaan' => 'required',
+            'penghasilan' => 'required',
             'jumlah_anak' => 'required',
             'ashnaf' => 'required',
         ]);
@@ -126,6 +135,11 @@ class MustahiqController extends Controller
         $mustahiqs = mustahiq::find($id);
         $mustahiqs->delete();
         return to_route('mustahiq.index')->with('hapus data berhasil');
+    }
+
+    public function export()
+    {
+        return Excel::download(new MustahiqExport, 'Mustahiq.xlsx');
     }
 
     
