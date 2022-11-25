@@ -17,6 +17,16 @@
             </div>
         </div>
         </a>
+        <a href="{{ route('muzakki.export') }}", class="text-white">
+            <div  style="font-size: 12px" class="col-md-12 mb-3">
+                <div class="card text-white" style="background-color: grey;">
+                    <div class="card-body text-center h9">
+                        <h9 class="card-title">Print</h9>
+                        <p class="card-text justify-content-end"></p>
+                    </div>
+                </div>
+            </div>
+            </a>
         <table class="table" id="maintable">
             <thead>
                 <tr style="font-size: 12px">

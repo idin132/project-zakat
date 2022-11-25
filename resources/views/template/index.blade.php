@@ -60,9 +60,7 @@
                     <li class="nav-item">
                         <a href="{{ route('user.index') }}"><i class="menu-icon fa fa-cog"></i>User Management</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('laporan.index') }}"><i class="menu-icon fa fa-cog"></i>Laporan</a>
-                    </li>
+                    
 
                 </ul>
             </div><!-- /.navbar-collapse -->

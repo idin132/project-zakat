@@ -27,8 +27,8 @@
                                     <div class="col-6">
                                     <label for="jenis_kelamin">{{ __('Jenis Kelamin') }}</label>
                                     <select name="jenis_kelamin" class="form-control">
-                                        <option value="L">Laki-Laki</option>
-                                        <option value="P">Perempuan</option>
+                                        <option value="L">{{__('L')}}</option>
+                                        <option value="P">{{__('P')}}</option>
                                     </select>
                                     </div>
                                     <div class="col-6">

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MuzakkiExport;
 
 class MuzakkiController extends Controller
 {
@@ -144,5 +148,10 @@ class MuzakkiController extends Controller
         $muzakki = User::find($id);
         $muzakki->delete();
         return to_route('muzakki.index')->with('hapus data berhasil>');
+    }
+
+    public function export()
+    {
+        return Excel::download(new MuzakkiExport, 'Muzakki.xlsx');
     }
 }

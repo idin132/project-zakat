@@ -49,9 +49,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('laporan', LaporanController::class);
         Route::get('print',[MustahiqController::class, 'export'])->name('mustahiq.export');
         Route::get('print/penerimaan',[PenerimaanController::class, 'export'])->name('penerimaan.export');
-
-
-
+        Route::get('print/muzakki', [MuzakkiController::class, 'export'])->name('muzakki.export');
 
 });
 
