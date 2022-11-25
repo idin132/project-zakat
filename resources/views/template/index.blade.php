@@ -32,7 +32,7 @@
                 <ul class="nav navbar-nav">
                     
                     <li class="nav-item">
-                        <a href="/"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="/admin"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Mustahiq</a>
@@ -96,7 +96,7 @@
 
                         <div class="user-menu dropdown-menu">
                             <div class="container">
-                                <form action="{{url('actionlogout')}}" method="post">
+                                <form action="{{url('admin/actionlogout')}}" method="post">
                                   @csrf
                                   <button type="submit" class="btn btn-dark">Logout</button>
                                 </form>

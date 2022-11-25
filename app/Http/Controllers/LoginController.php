@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()){
-            return redirect('/');
+            return redirect('/admin');
         }else{
             return view('auth.login');
         }
@@ -24,15 +24,15 @@ class LoginController extends Controller
             'password' => $request->input('password')
         ];
         if (Auth::Attempt($data)){
-            return redirect('/');
+            return redirect('/admin');
         }else{
             Session::flash('error', 'salah');
-            return redirect('/');     
+            return redirect('/admin');     
         }
     }
     public function actionlogout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/admin/login');
     }
 }
