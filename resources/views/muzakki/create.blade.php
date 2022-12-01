@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+    <div class="row">
         <div class="d-flex justify-content-center">
             <div class="card" style="width: 40rem;">
                 <div class="card-header">

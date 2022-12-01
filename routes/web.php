@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('user', UserController::class);
         Route::get('update', [UserController::class], 'update')->name('user.');
         Route::get('status/{id}', [PembayaranController::class, 'status']);
+        Route::get('print/mustahiq', [MustahiqController::class, 'export'])->name('mustahiq.export');
+        Route::get('print/muzakki', [MuzakkiController::class, 'export'])->name('muzakki.export');
+        Route::get('print/pembayaran', [PembayaranController::class, 'export'])->name('pembayaran.export');
+        Route::get('print/penerimaan', [PenerimaanController::class, 'export'])->name('penerimaan.export');
 
 });
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
     <div class="row">
-        <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
             <div class="card" style="width: 40rem;">
                 <div class="card-header">
                     <div class="card-body">
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="agama">{{__('Agama')}}</label>
-                                        <input type="text" class="form-control" name="agana" required>
+                                        <input type="text" class="form-control" name="agama" required>
                                     </div>
                                 </div>
                             </div>
@@ -92,5 +92,7 @@
                 </div>
             </div>
             </div>
+    </div>
+        
         </div>
     @endsection
