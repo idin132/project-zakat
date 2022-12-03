@@ -11,7 +11,7 @@
             <a class="nav-link" href="#">Berita</a>
         </li>
         <li class="item-menu-header">
-            <a class="nav-link" href="#">Zakat</a>
+            <a class="nav-link" href="kalkulator">Zakat</a>
         </li>
         @if (Auth::user())
         <li class="item-menu-header">

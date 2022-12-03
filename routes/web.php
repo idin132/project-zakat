@@ -13,6 +13,7 @@ use App\Http\Controllers\BackEnd\VerifController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\LoginFEController;
 use App\Http\Controllers\FrontEnd\UserFEController;
+use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\CpwController;
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,17 @@ use App\Http\Controllers\CpwController;
 */
 
 /* Login */
+Route::resource('kalkulator', KalkulatorController::class);
+// Route::get('zakat', [KalkulatorController::class, 'create'])->name('kalkulator');
+
+
+// Route::get('kalkulator-zakat', function () {
+//         return view('FrontEnd.zakat.index');
+// });
 Route::get('register', function () {
         return view('FrontEnd.login.register');
 });
+
 Route::resource('registrasi', UserFEController::class);
 
 
@@ -44,16 +53,6 @@ Route::post('/admin/actionlogin', [LoginController::class, 'actionlogin'])->name
 Route::post('/admin/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
-        // Route::get('update', [MuzakkiController::class, 'update'])->name('muzakki.');
-        // Route::resource('muzakki', MuzakkiController::class);
-        // Route::resource('mustahiq', MustahiqController::class);
-        // Route::get('update', [MustahiqController::class, 'update'])->name('mustahiq.');
-        // Route::resource('mustahiq', MustahiqController::class);
-        // Route::get('update', [ZakatController::class], 'update')->name('zakat.');
-        // Route::resource('zakat', ZakatController::class);
-        // Route::resource('pembayaran', PembayaranController::class);
-        // Route::resource('penerimaan', PenerimaanController::class);
-        // Route::resource('verif', VerifController::class);
         Route::get('update', [VerifController::class], 'update')->name('verif.');
         Route::resource('user', UserController::class);
         Route::get('update', [UserController::class], 'update')->name('user.');
@@ -76,7 +75,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('admin/user', UserController::class);
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
-
 });
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {

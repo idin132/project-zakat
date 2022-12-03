@@ -164,8 +164,6 @@ class PembayaranController extends Controller
 
     public function export()
     {
-        // $export = 'suratmasuk-' . date('Y-m-d') . '.xlsx';
         return Excel::download(new PembayaranExport, 'pembayaran.xlsx');
-        // return Excel::download(new UsersExport, 'users.xlsx');
     }
 }

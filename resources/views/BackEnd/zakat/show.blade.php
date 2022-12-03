@@ -1,4 +1,4 @@
-@extends('BackEnd.tampilan.layout')
+@extends('BackEnd.template.index')
 
 @section('content')
     <div class="container">
