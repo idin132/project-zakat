@@ -142,7 +142,7 @@ class PembayaranController extends Controller
     {
         $pembayarans = pembayaran::find($id);
         $pembayarans->delete();
-        return to_route('pembayaranp.index')->with('hapus data berhasil>');
+        return to_route('pembayaran.index')->with('hapus data berhasil>');
     }
 
     public function status ($id) {

@@ -3,15 +3,9 @@
 namespace App\Http\Controllers\BackEnd;
 
 use Illuminate\Http\Request;
-use App\Models\penerimaan;
-use App\Models\mustahiq;
-use App\Models\pembayaran;
 use App\Models\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\LaporanExport;
-
+use App\Models\pembayaran;
 
 class LaporanController extends Controller
 {
@@ -23,19 +17,21 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        $mustahiqs = mustahiq::count();
-        $muzakkis = User::count();
-        $penerimaan = penerimaan::count();
-        $pembayaran = pembayaran::count();
-        $total_donasi_disetujui = pembayaran::where('status', '0')->sum('jumlah');
-        $total_tersalurkan = penerimaan::sum('jumlah');
-        return view('BackEnd.laporan.index', compact('mustahiqs','muzakkis', 'penerimaan', 'pembayaran','total_donasi_disetujui', 'total_tersalurkan'));
-        
+        $muzakkis = User::all();
+        return view('BackEnd.laporan.muzakki', compact('muzakkis'));
     }
 
-    public function export()
+    public function pembayaran(Request $request)
     {
-        return Excel::download(new LaporanExport, 'Laporan.xlsx');
-    }
+        $tgl_masuk = $request->tgl_masuk;
+        $tgl_selesai = $request->tgl_selesai;
+        if($tgl_masuk){
+            $tgl_masuk = pembayaran::all()->whereBetween('created_at', [$tgl_masuk,$tgl_selesai]);
 
+            $sum_jumlah = pembayaran::whereBetween('created_at')->sum('jumlah');
+        }else{
+            $tgl_masuk = pembayaran::all();
+        }
+        return view('BackEnd.laporan.pembayaran', compact('tgl_masuk', 'tgl_selesai', 'sum_jumlah', 'pembayaran'));
+    }
 }
