@@ -5,6 +5,7 @@ namespace App\Http\Controllers\BackEnd;
 use Illuminate\Http\Request;
 use App\Models\penerimaan;
 use App\Models\mustahiq;
+use App\Models\zakat;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PenerimaanExport;
@@ -34,10 +35,12 @@ class PenerimaanController extends Controller
         $total = penerimaan::sum('jumlah');
         $penerimaan = penerimaan::all();
         $mustahiq = mustahiq::all();
+        $zakat = zakat::all();
 
         return view('BackEnd.penerimaan.create', [
-            'penerimaan' => $penerimaan, compact('total', 'mustahiq'),
+            'penerimaan' => $penerimaan, compact('total', 'mustahiq', 'zakat'),
             'mustahiq' => $mustahiq,
+            'zakat' => $zakat,
         ]);
     }
 
@@ -50,18 +53,18 @@ class PenerimaanController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nik' => 'required',
-            'nama' => 'required',
-            'jenis_kelamin' => 'required',
-            'tgl_lahir' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'pekerjaan' => 'required',
-            'penghasilan' => 'required',
-            'jumlah_anak' => 'required',
-            'jenis_zakat' => 'required',
-            'jumlah' => 'required',
-            'ashnaf' => 'required',
+            'nik',
+            'nama',
+            'jenis_kelamin',
+            'tgl_lahir',
+            'alamat',
+            'agama',
+            'pekerjaan',
+            'penghasilan',
+            'jumlah_anak',
+            'jenis_zakat',
+            'jumlah',
+            'ashnaf',
             'bukti',
 
         ]);
