@@ -69,7 +69,7 @@ class MustahiqController extends Controller
             'ashnaf' => $request->ashnaf,
         ]);
 
-        return redirect()->route('BackEnd.mustahiq.index');
+        return redirect()->route('mustahiq.index');
     }
 
     /**
