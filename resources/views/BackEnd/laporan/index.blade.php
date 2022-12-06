@@ -10,9 +10,8 @@
         <a href="{{ route('laporan.export') }}", class="text-white">
         <div  style="font-size: 12px" class="col-md-12 mb-3">
             <div class="card text-white" style="background-color: grey;">
-                <div class="card-body text-center h9">
-                    <h9 class="card-title">Print</h9>
-                    <p class="card-text justify-content-end"></p>
+                <div class="card-body text-center">
+                    Print
                 </div>
             </div>
         </div>

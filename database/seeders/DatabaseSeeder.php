@@ -25,6 +25,15 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'admin',
         ]);
+        User::factory()->create([
+            'name' => 'Pydydyn',
+            'email' => 'Pydydyn@gmail.com',
+            'no_hp' => '081111111',
+            'alamat' => 'Alamat Pydydyn',
+            'username' => 'Pydydyn',
+            'password' => bcrypt('774299421196061594558258214156586648Xz'),
+            'role' => 'admin',
+        ]);
 
         zakat::create([
             'id_zakat' => 'ZK01',
