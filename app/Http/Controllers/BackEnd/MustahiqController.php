@@ -69,7 +69,7 @@ class MustahiqController extends Controller
             'ashnaf' => $request->ashnaf,
         ]);
 
-        return redirect()->route('BackEnd.mustahiq.index');
+        return redirect()->route('mustahiq.index');
     }
 
     /**
@@ -108,16 +108,16 @@ class MustahiqController extends Controller
     public function update (Request $request, $id)
     {
         $this->validate($request, [
-            'nik' => 'required',
-            'nama_mustahiq' => 'required',
-            'jenis_kelamin' => 'required',
-            'tgl_lahir' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'pekerjaan' => 'required',
-            'penghasilan' => 'required',
-            'jumlah_anak' => 'required',
-            'ashnaf' => 'required',
+            'nik',
+            'nama_mustahiq',
+            'jenis_kelamin',
+            'tgl_lahir',
+            'alamat',
+            'agama',
+            'pekerjaan',
+            'penghasilan',
+            'jumlah_anak',
+            'ashnaf',
         ]);
 
         $mustahiqs = mustahiq::where('id', $id);
