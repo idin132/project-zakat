@@ -131,18 +131,18 @@ class PenerimaanController extends Controller
     {
 
         $this->validate($request, [
-            'nik' => 'required',
-            'nama' => 'required',
-            'jenis_kelamin' => 'required',
-            'tgl_lahir' => 'required',
-            'alamat' => 'required',
-            'agama' => 'required',
-            'pekerjaan' => 'required',
-            'penghasilan' => 'required',
-            'jumlah_anak' => 'required',
-            'jenis_zakat' => 'required',
-            'jumlah' => 'required',
-            'ashnaf' => 'required',
+            'nik',
+            'nama',
+            'jenis_kelamin',
+            'tgl_lahir',
+            'alamat',
+            'agama',
+            'pekerjaan',
+            'penghasilan',
+            'jumlah_anak',
+            'jenis_zakat',
+            'jumlah',
+            'ashnaf',
             'bukti',
         ]);
 

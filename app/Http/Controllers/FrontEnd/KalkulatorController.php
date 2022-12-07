@@ -24,6 +24,21 @@ class KalkulatorController extends Controller
         ]);
     }
 
+    public function show()
+    {
+        $penghasilan = zakat::all();
+        return view('FrontEnd.zakat.penghasilan', compact('penghasilan'));
+    }
+
+    public function createPenghasilan()
+    {
+        $penghasilan = zakat::all();
+
+        return view('FrontEnd.zakat.penghasilan', [
+            'zakat' => $penghasilan, compact('penghasilan'),
+        ]);
+    }
+
     // public function create()
     // {
     //     $total = penerimaan::sum('jumlah');

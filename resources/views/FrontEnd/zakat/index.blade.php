@@ -9,41 +9,49 @@
     <div class="container">
         <form action="" method="post">
             @csrf
-           
-            <div class="form-group">
-                <label for="kategori_zakat">{{ __('Kategori Zakat') }}</label>
-                <select name="kategori_zakat" id="id_zakat" class="form-control">
-                    @foreach($kalkulator as $item)
-                    <option value="{{ $item->kategori_zakat }}">{{ $item->kategori_zakat }}</option>
-                    @endforeach
-            
-                </select>
-            </div>
-          
-            @if($item->id_zakat == 'ZK02')
-                <div class="row">
-                    <div class="col">
-                        <label for="nik">{{ __('Harga Beras') }}</label>
-                        <input type="text" class="form-control" name="nik" required>
-                    </div>
-                    <div class="col">
-                        <label for="nik">{{ __('Jumlah Zakat') }}</label>
-                        <input type="text" class="form-control" name="nik" required>
-                    </div>
-                </div>
-            @elseif($item->id_zakat)
+
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="nik">{{ __('Harga Beras') }}</label>
-                        <input type="text" class="form-control" name="nik" required>
+                        <label for="kategori_zakat">{{ __('Kategori Zakat') }}</label>
+                        <input type="text" class="form-control" name="nik" value="Zakat Fitrah" readonly>
                     </div>
                 </div>
             </div>
-            @endif
+
+            <div class="row">
+                <div class="col">
+                    <label for="beras">{{ __('Harga Beras') }}</label>
+                    <input type="text" class="form-control" name="beras" value="Rp. 13.000" readonly>
+                </div>
+
+                <div class="col">
+                    <label for="jumlah">{{ __('Jumlah') }}</label>
+                    <input type="text" class="form-control" name="jumlah" value="Rp. 32.500" readonly >
+                </div>
+            </div>
             <br><br>
             <a href="" class="btn col text-white" style="background-color: cyan;">Hitung</a>
+            <br><br>
+            <br>
+
+            <div class="container text-center">
+                <div class="white-box info">
+                    <div class="col-sm-6 help-process ">
+                        <h2 style="color: #65FFDC;">Rp. 32.500</h2>
+                        <b>
+                            <p>Jumlah Zakat Yang Harus Dibayar</p>
+                        </b>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+
         </form>
+        <a href="pembayaran/fitrah" class="btn col text-white" style="background-color: cyan;">Lanjutkan</a>
+
+        
+        <!-- <a href="" class="btn col text-white" style="background-color: cyan;">Bayar Zakat</a> -->
     </div>
 </div>
 </div>

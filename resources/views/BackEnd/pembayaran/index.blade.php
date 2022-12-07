@@ -6,7 +6,7 @@
     <div class="card" style="width: 100%;">
         <div class="container">
             <br>
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalCetak" href="">.xlsx</button>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalCetak" href="laporan.pembayaran">.xlsx</button>
             <br><br>
             <table class="table" id="maintable">
                 <thead>
@@ -64,7 +64,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
-            <form method="GET" target="_blank" enctype="multipart/form-data" action="pembayaran.print">
+            <form method="GET" target="_blank" enctype="multipart/form-data" action="laporan">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">

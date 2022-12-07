@@ -30,9 +30,14 @@ use App\Http\Controllers\CpwController;
 /* Login */
 
 Route::resource('kalkulator', KalkulatorController::class);
+Route::get('kalkulator/penghasilan', [KalkulatorController::class, 'penghasilan'])->name('kalkulator.penghasilan');
 
 Route::get('register', function () {
         return view('FrontEnd.login.register');
+});
+
+Route::get('pembayaran/fitrah', function() {
+        return view('FrontEnd.pembayaran.fitrah');
 });
 
 

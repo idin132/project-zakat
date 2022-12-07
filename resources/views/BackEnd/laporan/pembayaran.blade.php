@@ -30,7 +30,7 @@
                         <tr>
                             <td align="center">
                                 <span style="line-height: 1.6; font-weight:bold;">
-                                    Data Muzakki
+                                    Data Pembayaran
                                 </span>
                             </td>
                         </tr>
