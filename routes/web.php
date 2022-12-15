@@ -14,7 +14,6 @@ use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\LoginFEController;
 use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
-use App\Http\Controllers\FrontEnd\BeritaController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\CpwController;
 /*
@@ -31,7 +30,9 @@ use App\Http\Controllers\CpwController;
 Route::resource('kalkulator', KalkulatorController::class);
 Route::get('kalkulator/penghasilan', [KalkulatorController::class, 'penghasilan'])->name('kalkulator.penghasilan');
 
-Route::resource('berita', BeritaController::class);
+Route::get('berita',function(){
+        return view('FrontEnd.berita.index');
+})->name('berita');
 
 Route::get('register', function () {
         return view('FrontEnd.login.register');
@@ -52,7 +53,7 @@ Route::post('/user/actionlogin', [LoginFEController::class, 'actionlogin'])->nam
 Route::post('/user/actionlogout', [LoginFEController::class, 'actionlogout'])->name('actionlogoutFE');
 Route::get('login', function () {
         return view('FrontEnd.login.index');
-});
+})->name('userlogin');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/admin/login', [LoginController::class, 'login'])->name('login');
