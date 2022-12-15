@@ -13,7 +13,7 @@
     @yield('content')
     @include('FrontEnd.layouts.js')
     @yield('js')
-    <!-- @include('FrontEnd.layouts.footer') -->
+    @include('FrontEnd.layouts.footer')
     @yield('footer')
 </body>
 
