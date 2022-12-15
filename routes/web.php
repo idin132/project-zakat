@@ -14,6 +14,7 @@ use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\LoginFEController;
 use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
+use App\Http\Controllers\FrontEnd\BeritaController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\CpwController;
 /*
@@ -27,10 +28,10 @@ use App\Http\Controllers\CpwController;
 |
 */
 
-/* Login */
-
 Route::resource('kalkulator', KalkulatorController::class);
 Route::get('kalkulator/penghasilan', [KalkulatorController::class, 'penghasilan'])->name('kalkulator.penghasilan');
+
+Route::resource('berita', BeritaController::class);
 
 Route::get('register', function () {
         return view('FrontEnd.login.register');
