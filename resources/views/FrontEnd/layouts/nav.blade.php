@@ -8,7 +8,7 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="item-menu-header">
-            <a class="nav-link" href="berita">Berita</a>
+            <a class="nav-link" href="{{route('berita')}}">Berita</a>
         </li>
         <li class="item-menu-header dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zakat</a>
@@ -37,7 +37,7 @@
         </li>
         @else
         <li class="item-menu-header">
-            <a class="nav-link" href="login">Login</a>
+            <a class="nav-link" href="{{route('userlogin')}}">Login</a>
         </li>
         @endif
 
