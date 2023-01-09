@@ -14,7 +14,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Zakat</a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="nav-link" href="{{ route('kalkulator.index')}}">Zakat Fitrah</a>
-                <a class="nav-link" href="{{ route('kalkulator.penghasilan')}}">Zakat Penghasilan</a>
+                <a class="nav-link" href="{{ route('penghasilan.index')}}">Zakat Penghasilan</a>
             </div>
         </li>
         @if (Auth::user())

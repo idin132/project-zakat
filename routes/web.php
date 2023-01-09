@@ -14,6 +14,7 @@ use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\LoginFEController;
 use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
+use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\CpwController;
 /*
@@ -28,7 +29,9 @@ use App\Http\Controllers\CpwController;
 */
 
 Route::resource('kalkulator', KalkulatorController::class);
-Route::get('kalkulator/penghasilan', [KalkulatorController::class, 'penghasilan'])->name('kalkulator.penghasilan');
+// Route::get('kalkulator/penghasilan', [KalkulatorController::class, 'penghasilan'])->name('kalkulator.penghasilan');
+
+Route::resource('penghasilan', PenghasilanController::class);
 
 Route::get('berita',function(){
         return view('FrontEnd.berita.index');
