@@ -7,9 +7,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #65FFDC;">
-        @include('FrontEnd.layouts.nav')
-    </nav>
+    @include('FrontEnd.layouts.nav')
     @yield('content')
     @include('FrontEnd.layouts.js')
     @yield('js')
