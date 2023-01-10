@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="nama_zakat">{{ __('nama Zakat') }}</label>
+                            <label for="nama_zakat">{{ __('Nama Zakat') }}</label>
                             <input type="text" class="form-control" name="nama_zakat" value="Zakat Fitrah" readonly>
                         </div>
                     </div>
