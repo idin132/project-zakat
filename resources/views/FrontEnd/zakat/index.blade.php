@@ -32,27 +32,15 @@
                     </div>
                 </div>
                 <br><br>
-                <!-- <a href="" class="btn col text-white" style="background-color: cyan;">Hitung</a> -->
-                <br><br>
-                <br>
-
-                <!-- <div class="container text-center">
-                    <div class="white-box info">
-                        <div class="col-sm-6 help-process ">
-                            <h2 style="color: #65FFDC;">Rp. 32.500</h2>
-                            <b>
-                                <p>Jumlah Zakat Yang Harus Dibayar</p>
-                            </b>
-                        </div>
-                    </div> -->
                 </div>
-                <br><br>
-                <button type="submit" class="btn col text-white" style="background-color: cyan;">Tambah</button>
+                @if (Auth::user())
+                    <button type="submit" class="btn col text-white" style="background-color: #65ffdc;">Tambah</button>
+                @else
+                    <h6 class="text-center">Anda belum login, silahkan login terlebih dahulu</h6>
+                    <button onclick="location.href='login'" type="button" class="btn col" style="background-color: #65ffdc;">
+                        Login</button>
+                @endif
             </form>
-            <!-- <a href="pembayaran/fitrah" class="btn col text-white" style="background-color: cyan;">Lanjutkan</a> -->
-
-
-            <!-- <a href="" class="btn col text-white" style="background-color: cyan;">Bayar Zakat</a> -->
         </div>
     </div>
 </div>

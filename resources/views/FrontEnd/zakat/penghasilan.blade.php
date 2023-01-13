@@ -45,7 +45,13 @@
                 </div>
 
                 <br><br>
-                <button type="submit" class="btn col text-white" style="background-color: cyan;">Tambah</button>
+                @if (Auth::user())
+                    <button type="submit" class="btn col text-white" style="background-color: #65ffdc;">Tambah</button>
+                @else
+                    <h6 class="text-center">Anda belum login, silahkan login terlebih dahulu</h6>
+                    <button onclick="location.href='login'" type="button" class="btn col" style="background-color: #65ffdc;">
+                        Login</button>
+                @endif
 
                 <!-- <a href="" class="btn col text-white" style="background-color: cyan;">Hitung</a> -->
             </form>
