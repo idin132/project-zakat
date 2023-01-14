@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('pembayaran', function (Blueprint $table) {
             $table->id();
             $table->string('nama_zakat');
-            $table->string('nama_muzakki');
+            $table->string('nama_muzakki')->default('null');
+            $table->string('no_hp')->default('null');
+            $table->string('email')->default('null');
             $table->string('jumlah');
-            $table->string('metode_pembayaran');
-            $table->string('bukti_pembayaran');
+            $table->string('metode_pembayaran')->default('null');
+            $table->string('bukti_pembayaran')->nullable();
             $table->string('status')->default('1');
             $table->timestamps();
         });

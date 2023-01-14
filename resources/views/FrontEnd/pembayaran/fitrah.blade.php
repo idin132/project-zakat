@@ -7,7 +7,7 @@
 
 
     <div class="container">
-        <form action="{{ route('kalkulator.update', $fitrah->id) }}" method="post">
+        <form action="{{ route('kalkulator.update', $fitrah->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -49,33 +49,48 @@
                 <div class="row">
                     <div class="col">
                         <label for="nama_muzakki">{{ __('Nama Lengkap') }}</label>
-                        <input type="text" class="form-control" name="nama_muzakki" value="" required>
+                        <input type="text" class="form-control" name="nama_muzakki" value="{{ $user->name }}" required>
                     </div>
                 </div>
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <label for="no_hp">{{ __('Nomor Handphone') }}</label>
-                        <input type="text" class="form-control" name="no_hp" value="082119678835" readonly>
+                        <input type="text" class="form-control" name="no_hp" value="{{ $user->no_hp }}" readonly>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <label for="email">{{ __('Email') }}</label>
-                        <input type="text" class="form-control" name="email" value="idinnaufal131204@gmail.com" readonly>
+                        <input type="text" class="form-control" name="email" value="{{ $user->email }}" readonly>
                     </div>
                 </div>
+            </div>
+            <!-- <div class="form-group">
+                <label for="bukti_pembayaran" class="col-md-4 col-form-label text-md-end">{{ __('Bukti') }}</label>
+
+                <div class="col-md-6">
+                    <input type="file" class="button" id="bukti_pembayaran" name="bukti_pembayaran" required>
+                </div>
             </div> -->
+
+            <div class="row mb-3">
+                <label for="bukti_pembayaran" class="col-md-4 col-form-label text-md-end">{{ __('Bukti') }}</label>
+
+                <div class="col-md-6">
+                    <input id="bukti_pembayaran" type="file" class="button" name="bukti_pembayaran" value="{{ $fitrah->bukti }}" request>
+                </div>
+            </div>
 
 
             <br><br>
             <button type="submit" class="btn col text-white" style="background-color: cyan;">
-            Konfirmasi
+                Konfirmasi
             </button>
             <br><br>
         </form>

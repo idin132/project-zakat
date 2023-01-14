@@ -17,6 +17,8 @@ use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\CpwController;
+use App\Http\Controllers\FrontEnd\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,3 +93,9 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('/admin', [DashboardController::class, 'dashboard'])->name('dashboard');
 });
+
+Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->name('user.profile');
+
+Route::get('selesai',function(){
+        return view('FrontEnd.pembayaran.terimakasih');
+})->name('selesai');
