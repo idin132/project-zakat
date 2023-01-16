@@ -28,9 +28,9 @@
             </div>
             <br>
 
-            <div class="sc_form_item sc_form_field label_over">
-                <input style="background-color: cyan;" data-toggle="modal" data-target="#modalCetak" name="metode_pembayaran" class="form-control text-center" id="metode_pembayaran" placeholder="Metode Pembayaran" readonly>
-            </div>
+            <!-- <div class="sc_form_item sc_form_field label_over">
+                <div style="background-color: cyan;" data-toggle="modal" data-target="#modalCetak" name="metode_pembayaran" class="form-control text-center" id="metode_pembayaran" placeholder="Metode Pembayaran" readonly>
+            </div> -->
             <br>
             <div class="form-group">
                 <div class="row">

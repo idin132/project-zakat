@@ -17,6 +17,7 @@ use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\CpwController;
+use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ProfileController;
 
 /*
@@ -99,3 +100,5 @@ Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->n
 Route::get('selesai',function(){
         return view('FrontEnd.pembayaran.terimakasih');
 })->name('selesai');
+
+Route::get('history', [HistoryController::class, 'index'])->name('history');

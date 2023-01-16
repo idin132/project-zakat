@@ -78,7 +78,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a href="{{ route('user.profile', Auth::user()->id) }}" class="dropdown-item"><i class="fa fa-user-o"></i> Profile</a></a>
-                            <a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i>History</a></a>
+                            <a href="{{ route('history')}}" class="dropdown-item"><i class="fa fa-calendar-o"></i>History</a></a>
                             <a href="#" class="dropdown-item"><i class="fa fa-sliders"></i>Change Passowrd</a></a>
                             <div class="dropdown-divider"></div>
 
