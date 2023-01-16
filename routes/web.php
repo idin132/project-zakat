@@ -16,7 +16,7 @@ use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
-use App\Http\Controllers\CpwController;
+use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
 
 /*
@@ -35,7 +35,7 @@ Route::resource('kalkulator', KalkulatorController::class);
 
 Route::resource('penghasilan', PenghasilanController::class);
 
-Route::get('berita',function(){
+Route::get('berita', function () {
         return view('FrontEnd.berita.index');
 })->name('berita');
 
@@ -43,7 +43,7 @@ Route::get('register', function () {
         return view('FrontEnd.login.register');
 });
 
-Route::get('pembayaran/fitrah', function() {
+Route::get('pembayaran/fitrah', function () {
         return view('FrontEnd.pembayaran.fitrah');
 });
 
@@ -67,7 +67,6 @@ Route::post('/admin/actionlogout', [LoginController::class, 'actionlogout'])->na
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('update', [VerifController::class], 'update')->name('verif.');
-        Route::resource('user', UserController::class);
         Route::get('update', [UserController::class], 'update')->name('user.');
         Route::get('status/{id}', [PembayaranController::class, 'status']);
         Route::get('print/mustahiq', [MustahiqController::class, 'export'])->name('mustahiq.export');
@@ -96,6 +95,11 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->name('user.profile');
 
-Route::get('selesai',function(){
+Route::get('selesai', function () {
         return view('FrontEnd.pembayaran.terimakasih');
 })->name('selesai');
+
+Route::controller(ChangePasswordController::class)->group(function () {
+        Route::get('change-password', 'index')->name('change-password');
+        Route::post('changepw', 'changePassword')->name('changepw.reset');
+});
