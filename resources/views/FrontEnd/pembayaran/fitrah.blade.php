@@ -28,10 +28,10 @@
             </div>
             <br>
 
-            <!-- <div class="sc_form_item sc_form_field label_over">
+            <div class="sc_form_item sc_form_field label_over">
                 <input style="background-color: cyan;" data-toggle="modal" data-target="#modalCetak" name="metode_pembayaran" class="form-control text-center" id="metode_pembayaran" placeholder="Metode Pembayaran" readonly>
             </div>
-            <br> -->
+            <br>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
@@ -100,10 +100,13 @@
 
 <div class="modal fade" id="modalCetak" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <a href="" class="nav-link">Dana</a>
-            <a href="" class="nav-link">BCA</a>
+        <center><div class="container">
+        <div class="card" style="width: 15rem;">
+            <img class="card-img-top" src="{{asset('images/dana.jpeg')}}">
+            <center><p style="font-family:'Times New Roman', Times, serif ; padding-top: 10px;">Scan QR Dana</p></center>
+            <center><p style="font-family:'Times New Roman', Times, serif ; padding-top: 10px;">082119678835</p></center>
         </div>
+        </div></center>
     </div>
 </div>
 @endsection

@@ -74,12 +74,12 @@ class KalkulatorController extends Controller
         if ($request->file('bukti_pembayaran') == "") {
 
             $fitrah->update([
-                'nama_zakat',
-                'nama_muzakki',
-                'no_hp',
-                'email',
-                'jumlah',
-                'metode_pembayaran',
+                'nama_zakat' => $request->nama_zakat,
+                'nama_muzakki' => $request->nama_muzakki,
+                'no_hp' => $request->no_hp,
+                'email' => $request->email,
+                'jumlah' => $request->jumlah,
+                'metode_pembayaran' => $request->metode_pembayaran
 
 
             ]);
@@ -91,13 +91,12 @@ class KalkulatorController extends Controller
 
             $fitrah->update([
                 'bukti_pembayaran' => $image->hashName(),
-                'nama_zakat',
-                'nama_muzakki',
-                'no_hp',
-                'email',
-                'jumlah',
-                'metode_pembayaran',
-                'bukti_pembayaran',
+                'nama_zakat' => $request->nama_zakat,
+                'nama_muzakki' => $request->nama_muzakki,
+                'no_hp' => $request->no_hp,
+                'email' => $request->email,
+                'jumlah' => $request->jumlah,
+                'metode_pembayaran' => $request->metode_pembayaran
             ]);
 
 

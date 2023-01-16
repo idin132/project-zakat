@@ -92,8 +92,8 @@ class PenghasilanController extends Controller
             ]);
 
 
-            // $penghasilan = pembayaran::where('id', $id);
-            // $penghasilan->update($request->except('_token','_method'));
+            $penghasilan = pembayaran::where('id', $id);
+            $penghasilan->update($request->except('_token','_method'));
             return redirect()->route('home');
         }
     }
