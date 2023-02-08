@@ -34,4 +34,18 @@ class LaporanController extends Controller
         }
         return view('BackEnd.laporan.pembayaran', compact('tgl_masuk', 'tgl_selesai'));
     }
+
+    public function filter(Request $request)
+    {
+        {
+            $start_date = $request->start_date;
+            $end_date = $request->end_date;
+            
+            $data = pembayaran::when($start_date, function ($query) use ($start_date, $end_date) {
+                return $query->whereBetween('created_at', [$start_date, $end_date]);
+            })->get();
+            
+            return view('BackEnd.pembayaran.index', compact('data'));
+        }
+    }
 }

@@ -82,7 +82,7 @@ class PenerimaanController extends Controller
             'pekerjaan' => $request->pekerjaan,
             'penghasilan' => $request->penghasilan,
             'jumlah_anak' => $request->jumlah_anak,
-            'jenis_zakat' => $request->jenis_zakat,
+            'jenis_zakat',
             'jumlah' => $request->jumlah,
             'ashnaf' => $request->ashnaf,
             'bukti' => $image->hashName(),
@@ -160,7 +160,7 @@ class PenerimaanController extends Controller
                 'pekerjaan' => $request->pekerjaan,
                 'penghasilan' => $request->penghasilan,
                 'jumlah_anak' => $request->jumlah_anak,
-                'jenis_zakat' => $request->jenis_zakat,
+                'jenis_zakat',
                 'jumlah' => $request->jumlah,
                 'ashnaf' => $request->ashnaf,
 
@@ -182,7 +182,7 @@ class PenerimaanController extends Controller
                 'pekerjaan' => $request->pekerjaan,
                 'penghasilan' => $request->penghasilan,
                 'jumlah_anak' => $request->jumlah_anak,
-                'jenis_zakat' => $request->jenis_zakat,
+                'jenis_zakat',
                 'jumlah' => $request->jumlah,
                 'ashnaf' => $request->ashnaf,
             ]);

@@ -18,6 +18,7 @@ use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
 use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
+use App\Http\Controllers\FrontEnd\ProfileController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -86,6 +87,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('admin/user', UserController::class);
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
+        Route::get('filter/pembayaran', [PembayaranController::class, 'pembayaran'])->name('filter.pembayaran');
 });
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {

@@ -15,7 +15,7 @@ use App\Http\Controllers\Controller;
 class PembayaranController extends Controller
 {
 
-   
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        
+
         $pembayarans = pembayaran::all();
         return view('BackEnd.pembayaran.index', compact('pembayarans'));
         $pembayarans = muzakki::count()->DB::select('select * from pembayaran where jumlah = ?', [1]);
@@ -43,7 +43,6 @@ class PembayaranController extends Controller
             'zakat' => $zakat,
             'muzakki' => $muzakki,
         ]);
-
     }
 
     /**
@@ -79,35 +78,35 @@ class PembayaranController extends Controller
         return redirect()->route('mustahiq.index');
     }
 
-     /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
 
-     public function show ($id)
-     {
-         $pembayarans = pembayaran::oldest('id')->simplepaginate(1);
-         return view('BackEnd.pembayaran.detail', compact('pembayarans'));
-     }
+    public function show($id)
+    {
+        $pembayarans = pembayaran::oldest('id')->simplepaginate(1);
+        return view('BackEnd.pembayaran.detail', compact('pembayarans'));
+    }
 
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
 
-     public function edit ($id)
-     {
-         $pembayarans = pembayaran::where('id', $id)->first();
-         return view('BackEnd.pembayaran.show', [
-             "pembayarans" => $pembayarans,
-         ]);
-     }
+    public function edit($id)
+    {
+        $pembayarans = pembayaran::where('id', $id)->first();
+        return view('BackEnd.pembayaran.show', [
+            "pembayarans" => $pembayarans,
+        ]);
+    }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -115,21 +114,21 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function update(Request $request, $id)
-     {
-         $this->validate($request, [
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
             'nama_zakat' => 'required',
             'nama_mustahiq' => 'required',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
             'status' => 'required',
-         ]);
+        ]);
 
-         $pembayarans = pembayaran::where('id', $id);
-         $pembayarans->update($request->except('_token','_method'));
-         return redirect()->route('pembayaranp.index');
-     }
+        $pembayarans = pembayaran::where('id', $id);
+        $pembayarans->update($request->except('_token', '_method'));
+        return redirect()->route('pembayaranp.index');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -138,32 +137,43 @@ class PembayaranController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy ($id)
+    public function destroy($id)
     {
         $pembayarans = pembayaran::find($id);
         $pembayarans->delete();
         return to_route('pembayaran.index')->with('hapus data berhasil>');
     }
 
-    public function status ($id) {
-        $pembayarans = pembayaran::where('id', $id)->first();   
+    public function status($id)
+    {
+        $pembayarans = pembayaran::where('id', $id)->first();
         $status = $pembayarans->status;
 
-        if($status == 1) {
+        if ($status == 1) {
             pembayaran::where('id', $id)->update([
-                'status'=> 0 
+                'status' => 0
             ]);
-        }else{
+        } else {
             pembayaran::where('id', $id)->update([
-                'status'=> 1
-        ]);
-
+                'status' => 1
+            ]);
         }
-            return back()->with('pesan', 'status sudah diupdate');
+        return back()->with('pesan', 'status sudah diupdate');
     }
 
     public function export()
     {
         return Excel::download(new PembayaranExport, 'pembayaran.xlsx');
     }
+
+    public function pembayaran(Request $request)
+    {
+        // $sum_jumlah = pembayaran::sum('jumlah');
+        $tgl_masuk = $request->tgl_masuk;
+        $tgl_selesai = $request->tgl_selesai;
+        $data = pembayaran::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->get();
+        $sum_jumlah = pembayaran::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->sum('jumlah');
+        return view('BackEnd.laporan.pembayaran', compact('data', 'tgl_masuk', 'tgl_selesai','sum_jumlah'));
+    }
+
 }

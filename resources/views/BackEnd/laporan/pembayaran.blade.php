@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Pembayaran</title>
+    <title>‎ </title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
@@ -30,7 +30,7 @@
                         <tr>
                             <td align="center">
                                 <span style="line-height: 1.6; font-weight:bold;">
-                                    Data Pembayaran
+                                    Laporan Pembayaran
                                 </span>
                             </td>
                         </tr>
@@ -41,7 +41,7 @@
                         Laporan Data Pembayaran
                     </p>
                     <p align="center">
-                        Periode Tanggal {{ $tgl_mulai }}
+                        Periode Tanggal {{ $tgl_masuk }} sampai dengan {{ $tgl_selesai}}
                     </p>
                     </hr>
 
@@ -56,27 +56,30 @@
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
-                        @if($sum_jumlah == 0)
+                        @if($sum_jumlah == 1)
                         <tr>
-                            <td colspan="6"><center><b>Data Tidak ada pada periode tanggal {{date('d f Y', strtotime($tgl_mulai)</b></center></td>
+                            <td colspan="6"><center><b>Data Tidak ada pada periode tanggal {{date('d F Y', strtotime($tgl_masuk))}}</b></center></td>
                         </tr>
                         @else
                         <tbody>
-                            @foreach ($pembayaran as $key => $item)
+                            @foreach ($data as $key => $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->nama_zakat }}</td>
                                 <td>{{ $item->nama_muzakki }}</td>
                                 <td>{{ $item->jumlah }}</td>
                                 <td>{{ $item->metode_pembayaran }}</td>
-                                <td>{{ date('d f Y', strtotime($item->created_at)) }}</td>
+                                <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
                             </tr>
                             @endforeach
 
                             <tr>
                                 <td colspan="6">Total Donasi</td>
                                 <td>Rp. {{ number_format($sum_jumlah) }}</td>
+                                
                             </tr>
+                        @endif
+
                         </tbody>
                     </table>
                 </div>
@@ -85,5 +88,4 @@
     </div>
 
 </body>
-
 </html>

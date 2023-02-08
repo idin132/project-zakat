@@ -1,5 +1,7 @@
     {{-- <nav class="navbar">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="/">
+            <img src="{{asset('images/slider_zakat_fitrah.jpeg')}}" alt="" srcset="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,7 +49,11 @@
     </nav> --}}
 
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #65ffdc">
-        <a class="navbar-brand" href="/">Navbar</a>
+        <a class="navbar-brand" href="/">
+            <img src="{{asset('images/logo-removebg-preview.png')}}" alt="" style="max-width: 100px;">
+            <!-- YUK ZAKAT -->
+
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

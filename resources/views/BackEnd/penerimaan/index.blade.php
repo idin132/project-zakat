@@ -31,7 +31,6 @@
                     <th>NO</th>
                     <th>Nama</th>
                     <th>Alamat</th>
-                    <th>Zakat</th>
                     <th>Jumlah</th>
                     <th>Bukti</th>
                     <th>Tanggal</th>
@@ -44,7 +43,6 @@
                     <td  style="font-size: 12px">{{$item->id}}</td>
                     <td  style="font-size: 12px">{{$item->nama}}</td>
                     <td  style="font-size: 12px">{{$item->alamat}}</td>
-                    <td  style="font-size: 12px">{{$item->jenis_zakat}}</td>
                     <td  style="font-size: 12px">{{$item->jumlah}}</td>
                     <td  style="font-size: 12px">@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
                     <td  style="font-size: 12px">{{$item->created_at}}</td>

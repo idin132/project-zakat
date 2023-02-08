@@ -73,8 +73,8 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="{{asset('images/logo_zakat.jpeg')}}" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="{{asset('images/logo_zakat.jpeg')}}" alt="Logo"></a>
+                    <a class="navbar-brand" href="./"><img src="{{asset('images/logo-removebg-preview.png')}}" alt="" style="max-width: 100px;"></a>
+                    <a class="navbar-brand hidden" href="./"><img src="{{asset('images/logo-removebg-preview.png')}}" alt="" style="max-width: 100px;"></a>
                     <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
