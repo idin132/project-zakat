@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('bukti_pembayaran')->nullable();
             $table->string('status')->default('1');
             $table->timestamps();
+
         });
     }
 
@@ -36,4 +37,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('pembayarans');
     }
+    
 };

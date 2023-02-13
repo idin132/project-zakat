@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('nik')->default('null');
-            $table->string('name')->default('null');
+            $table->string('nama_muzakki')->default('null');
             $table->string('jenis_kelamin')->default('null');
             $table->string('nomor_rekening')->default('null');
             $table->string('tgl_lahir')->default('null');
