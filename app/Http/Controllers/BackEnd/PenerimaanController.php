@@ -21,7 +21,8 @@ class PenerimaanController extends Controller
      */
     public function index()
     {
-        $penerimaan = penerimaan::all();
+        // $mustahiqs = mustahiq::where('id_mustahiq')->first();
+        $penerimaan = penerimaan::with('mustahiq')->get()->where('id_mustahiq');
         return view('BackEnd.penerimaan.index', compact('penerimaan'));
     }
 
@@ -33,12 +34,12 @@ class PenerimaanController extends Controller
     public function create()
     {
         $total = penerimaan::sum('jumlah');
-        $penerimaan = penerimaan::all();
+        $penerimaan = penerimaan::with('mustahiq')->get();
         $mustahiq = mustahiq::all();
         $zakat = zakat::all();
 
         return view('BackEnd.penerimaan.create', [
-            'penerimaan' => $penerimaan, compact('total', 'mustahiq', 'zakat'),
+            'penerimaan' => $penerimaan, compact('total', 'zakat'),
             'mustahiq' => $mustahiq,
             'zakat' => $zakat,
         ]);
@@ -54,7 +55,7 @@ class PenerimaanController extends Controller
     {
         $this->validate($request, [
             'nik',
-            'nama',
+            'id_mustahiq',
             'jenis_kelamin',
             'tgl_lahir',
             'alamat',
@@ -74,7 +75,7 @@ class PenerimaanController extends Controller
 
         $penerimaan = penerimaan::create([
             'nik' => $request->nik,
-            'nama' => $request->nama,
+            'id_mustahiq' => $request->id_mustahiq,
             'jenis_kelamin' => $request->jenis_kelamin,
             'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
@@ -98,10 +99,10 @@ class PenerimaanController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function show($id)
+    public function show ($id_mustahiq)
     {
-        $penerimaan = penerimaan::oldest('id')->simplepaginate(1);
-        return view('BackEnd.penerimaan.detail', compact('penerimaan'));
+        $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq)->first();
+        return view('BackEnd.penerimaan.detail', compact('mustahiqs'));  
     }
 
     /**
