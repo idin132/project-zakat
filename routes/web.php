@@ -16,6 +16,7 @@ use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
+use App\Http\Controllers\BackEnd\VerifikasiController;
 use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
@@ -75,13 +76,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('print/penerimaan', [PenerimaanController::class, 'export'])->name('penerimaan.export');
         Route::get('admin/update', [MuzakkiController::class, 'update'])->name('muzakki.');
         Route::resource('admin/muzakki', MuzakkiController::class);
-        Route::resource('admin/mustahiq', MustahiqController::class);
         Route::get('admin/update', [MustahiqController::class, 'update'])->name('mustahiq.');
         Route::resource('admin/mustahiq', MustahiqController::class);
         Route::get('admin/update', [ZakatController::class], 'update')->name('zakat.');
         Route::resource('admin/zakat', ZakatController::class);
         Route::resource('admin/pembayaran', PembayaranController::class);
         Route::resource('admin/penerimaan', PenerimaanController::class);
+
+        Route::resource('admin/verifikasi', VerifikasiController::class);
+        Route::resource('admin/pembayaran', PembayaranController::class);
+        Route::resource('admin/verif', VerifController::class);
+
+
         Route::resource('admin/verif', VerifController::class);
         Route::get('admin/update', [VerifController::class], 'update')->name('verif.');
         Route::resource('admin/user', UserController::class);
@@ -95,6 +101,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 });
 
 Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->name('user.profile');
+Route::resource('profile', ProfileController::class);
+
 
 Route::get('selesai', function () {
         return view('FrontEnd.pembayaran.terimakasih');
