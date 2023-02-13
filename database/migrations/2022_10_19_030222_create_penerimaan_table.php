@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('penerimaan', function (Blueprint $table) {
             $table->id();
             $table->string('nik')->nullable();
-            $table->string('nama')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->string('tgl_lahir')->nullable();
             $table->string('alamat')->nullable();
