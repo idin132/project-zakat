@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'nik',
-        'name',
+        'nama_muzakki',
         'jenis_kelamin',
         'nomor_rekening',
         'tgl_lahir',
