@@ -75,24 +75,24 @@ class MustahiqController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function show ($id)
+    public function show ($id_mustahiq)
     {
-        $mustahiqs = mustahiq::where('id', $id)->first();
+        $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq)->first();
         return view('BackEnd.mustahiq.detail', compact('mustahiqs'));  
     }
 
      /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function edit ($id)
+    public function edit ($id_mustahiq)
     {
-        $mustahiqs = mustahiq::where('id', $id)->first();
+        $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq)->first();
         return view('BackEnd.mustahiq.show', [
             "mustahiqs" => $mustahiqs,
         ]);
@@ -102,10 +102,10 @@ class MustahiqController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, $id)
+    public function update (Request $request, $id_mustahiq)
     {
         $this->validate($request, [
             'nik',
@@ -120,7 +120,7 @@ class MustahiqController extends Controller
             'ashnaf',
         ]);
 
-        $mustahiqs = mustahiq::where('id', $id);
+        $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq);
         $mustahiqs->update($request->except('_token','_method'));
         return redirect()->route('mustahiq.index');
     }
@@ -128,12 +128,12 @@ class MustahiqController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function destroy ($id)
+    public function destroy ($id_mustahiq)
     {
-        $mustahiqs = mustahiq::find($id);
+        $mustahiqs = mustahiq::find($id_mustahiq);
         $mustahiqs->delete();
         return to_route('mustahiq.index')->with('hapus data berhasil');
     }

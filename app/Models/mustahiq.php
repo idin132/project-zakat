@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class mustahiq extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_mustahiq';
     protected $table = "mustahiq";
     protected $fillable = [
         'nik',
@@ -22,7 +23,7 @@ class mustahiq extends Model
          'ashnaf',
     ];
 
-    public function mustahiq(){
-        return $this->belongsTo('App\Models\mustahiq');
+    public function penerimaan(){
+        return $this->hasMany(penerimaan::class, 'id_mustahiq');
     } 
 }

@@ -10,11 +10,15 @@ class penerimaan extends Model
     use HasFactory;
     protected $table = "penerimaan";
     protected $fillable = [
-        'nama',
+        'id_mustahiq',
         'alamat',
         'jenis_zakat',
         'jumlah',
         'bukti',
 
     ];
+    public function mustahiq()
+    {
+        return $this->belongsTo(mustahiq::class, 'id_mustahiq');
+    }
 }
