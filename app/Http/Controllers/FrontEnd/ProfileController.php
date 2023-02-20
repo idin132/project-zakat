@@ -29,70 +29,38 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    public function userProfile() {
         $user = User::find(Auth::user()->id);
 
         return view("FrontEnd.profile.index", compact("user"));
     }
-    
-    public function editUserProfile($id) {
-        $jobs = Job::orderBy("created_at", "DESC")->get();
-        $user = User::with(["job"])->findOrFail($id);
 
-        return view("user.profile.edit", compact("jobs", "user"));
+    public function userProfile()
+    {
+        $user = User::find(Auth::user()->id);
+
+        return view("FrontEnd.profile.index", compact("user"));
     }
 
-    public function updateUserProfile(Request $request, $id) {
+    public function edit($id)
+    {
+        $users = User::where('id', $id)->first();
+        return view('FrontEnd.profile.edit', [
+            "users" => $users,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
         $this->validate($request, [
-            "name" => "required|string",
-            "job_id" => "required|exists:jobs,id",
-            "email" => "required|email|unique:users,id," . $id,
-            "password" => "required",
-            "image" => "required|mimes:jpeg,jpg,png",
-            "gender" => "required",
-            "phone_number" => "required|numeric"
+            'nama_muzakki' => 'required',
+            'email' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'username' => 'required',
         ]);
 
-        $user = User::with(["job"])->findOrFail($id);
-
-        if ($request->hasFile("image")) {
-            $file = $request->file("image");
-            $filename = time() . "." . $file->getClientOriginalExtension();
-
-            $file->move('assets/images', $filename);
-
-            File::delete('assets/images' . $user->image);
-
-            // Jika user mengganti passwornya password 
-
-            if ($user->password != $request->password) {
-                $user->update([
-                    "name" => $request->name,
-                    "job_id" => $request->job_id,
-                    "email" => $request->email,
-                    "password" => Hash::make($request->password),
-                    "image" => $filename,
-                    "gender" => $request->gender,
-                    "phone_number" => $request->phone_number
-                ]);
-            } else {
-                // Jika user tidak mengganti passwordnya
-
-                $user->update([
-                    "name" => $request->name,
-                    "job_id" => $request->job_id,
-                    "email" => $request->email,
-                    "password" => $request->password,
-                    "image" => $filename,
-                    "gender" => $request->gender,
-                    "phone_number" => $request->phone_number
-                ]);
-            }
-        }
-
-        return redirect(route("user.profile", $user->id))->with(["success" => "User berhasil diupdate!"]);
+        $users = user::where('id', $id);
+        $users->update($request->except('_token', '_method'));
+        return redirect()->route('profile.index');
     }
 }
