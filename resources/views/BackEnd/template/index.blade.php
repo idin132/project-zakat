@@ -45,7 +45,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Muzakki</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-user"></i><a href="{{ route('muzakki.index') }}">Biodata</a></li>
-                            <li><i class="menu-icon fa fa-credit-card-alt"></i><a href="{{ route('pembayaran.index') }}">Pembayaran</a></li>
+                            <li><i class="menu-icon fa fa-credit-card-alt"></i><a href="{{ route('verifikasi.index') }}">Pembayaran</a></li>
                         </ul>
                     </li>
 
