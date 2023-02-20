@@ -67,7 +67,7 @@
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->nama_zakat }}</td>
                                 <td>{{ $item->nama_muzakki }}</td>
-                                <td>{{ $item->jumlah }}</td>
+                                <td>Rp. {{ number_format($item->jumlah) }}</td>
                                 <td>{{ $item->metode_pembayaran }}</td>
                                 <td>{{ date('d F Y', strtotime($item->created_at)) }}</td>
                             </tr>
@@ -86,6 +86,6 @@
             </div>
         </div>
     </div>
-
+    <title>‎ </title>
 </body>
 </html>
