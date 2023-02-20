@@ -26,7 +26,6 @@ class PembayaranController extends Controller
 
         $pembayarans = pembayaran::all();
         return view('BackEnd.pembayaran.index', compact('pembayarans'));
-        $pembayarans = muzakki::count()->DB::select('select * from pembayaran where jumlah = ?', [1]);
     }
 
     /**
@@ -175,5 +174,7 @@ class PembayaranController extends Controller
         $sum_jumlah = pembayaran::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->sum('jumlah');
         return view('BackEnd.laporan.pembayaran', compact('data', 'tgl_masuk', 'tgl_selesai','sum_jumlah'));
     }
+
+    
 
 }
