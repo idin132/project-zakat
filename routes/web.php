@@ -44,16 +44,8 @@ Route::get('register', function () {
         return view('FrontEnd.login.register');
 });
 
-Route::get('pembayaran/fitrah', function () {
-        return view('FrontEnd.pembayaran.fitrah');
-});
-
 
 Route::resource('registrasi', UserFEController::class);
-
-Route::resource('laporan', LaporanController::class);
-Route::get('print-pembayaran', [LaporanController::class, 'pembayaran'])->name('pembayaran.print');
-
 
 Route::post('/user/actionlogin', [LoginFEController::class, 'actionlogin'])->name('actionloginFE');
 Route::post('/user/actionlogout', [LoginFEController::class, 'actionlogout'])->name('actionlogoutFE');
@@ -67,6 +59,7 @@ Route::post('/admin/actionlogin', [LoginController::class, 'actionlogin'])->name
 Route::post('/admin/actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
+        Route::get('admin', [DashboardController::class, 'dashboard'])->name('dashboard');
         Route::get('update', [VerifController::class], 'update')->name('verif.');
         Route::get('update', [UserController::class], 'update')->name('user.');
         Route::get('status/{id}', [PembayaranController::class, 'status']);
@@ -94,22 +87,29 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
         Route::get('filter/pembayaran', [PembayaranController::class, 'pembayaran'])->name('filter.pembayaran');
+        Route::resource('laporan', LaporanController::class);
+        Route::get('print-pembayaran', [LaporanController::class, 'pembayaran'])->name('pembayaran.print');
 });
 
-Route::group(['middleware' => ['auth', 'role:admin']], function () {
-        Route::get('/admin', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::group(['middleware' => ['auth', 'role:user']], function () {
+        Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->name('user.profile');
+        Route::resource('profile', ProfileController::class);
+        Route::get('history', [HistoryController::class, 'index'])->name('history');
+        
+        Route::get('pembayaran/fitrah', function () {
+                return view('FrontEnd.pembayaran.fitrah');
+        });
 });
 
-Route::get('/user/profile/{user}', [ProfileController::class, 'userProfile'])->name('user.profile');
-Route::resource('profile', ProfileController::class);
 
-
-Route::get('selesai', function () {
-        return view('FrontEnd.pembayaran.terimakasih');
-})->name('selesai');
-
-Route::get('history', [HistoryController::class, 'index'])->name('history');
 Route::controller(ChangePasswordController::class)->group(function () {
         Route::get('change-password', 'index')->name('change-password');
         Route::post('changepw', 'changePassword')->name('changepw.reset');
+        
 });
+Route::get('selesai', function () {
+        return view('FrontEnd.pembayaran.terimakasih');
+})->name('selesai')->middleware('auth');
+
+
+
