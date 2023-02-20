@@ -5,7 +5,7 @@
     <div class="card" style="width: 100%;">
         <div class="container">
             <br>
-            <table  class="table"  id="maintable">
+            <table  class="table"  id="verif">
                 <thead>
                     <tr style="font-size: 12px">
                         <th>No</th>
@@ -15,6 +15,7 @@
                         <th>Metode Pembayaran</th>
                         <th>Bukti Pembayaran</th>
                         <th>Status</th>
+                        <th>Tanggal</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,6 +36,9 @@
                         </td>
                         <td ><label style="font-size: 12px" class="label {{ ($item->status == 1) ? 'label-success' : 'label-danger' }}">
                              {{ ($item->status == 1) ? 'Pending' : 'Selesai' }}</label></td>
+                             <td>
+                                {{ ($item->created_at) }}
+                             </td>
                         <td>
                             <div class="d-flex justify-content-center">
                                 @if($item->status == 1)

@@ -130,7 +130,12 @@
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.jqueryui.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-        $('#maintable').DataTable();
+        $('#maintable').DataTable({
+            "order": [[ 6, "desc" ]] // assuming the "created_at" column is the third column (index 2)
+        });
+        $('#verif').DataTable({
+            "order": [[ 7, "desc" ]] // assuming the "created_at" column is the third column (index 2)
+        });
     });
 </script>
 </body>
