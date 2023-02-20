@@ -14,7 +14,7 @@ class UserFEController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index ()
+    public function index()
     {
         $total_donasi_disetujui = pembayaran::where('status', '0')->sum('jumlah');
         return view('FrontEnd.index', compact('total_donasi_disetujui'));
@@ -25,7 +25,7 @@ class UserFEController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create ()
+    public function create()
     {
         //
     }
@@ -36,10 +36,10 @@ class UserFEController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store (Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'nama_muzakki' => 'required',
             'email' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required',
@@ -48,7 +48,7 @@ class UserFEController extends Controller
         ]);
 
         $user = user::create([
-            'name'      => $request->name,
+            'nama_muzakki'      => $request->nama_muzakki,
             'email'     => $request->email,
             'no_hp'     => $request->no_hp,
             'alamat'    => $request->alamat,
@@ -65,18 +65,17 @@ class UserFEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show ($id)
+    public function show($id)
     {
-        
     }
 
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit ($id)
+    public function edit($id)
     {
         $users = User::where('id', $id)->first();
         return view('BackEnd.user.show', [
@@ -91,7 +90,7 @@ class UserFEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, $id)
+    public function update(Request $request, $id_user)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -102,8 +101,8 @@ class UserFEController extends Controller
             'password' => 'required',
         ]);
 
-        $users = user::where('id', $id);
-        $users->update($request->except('_token','_method'));
+        $users = user::where('id_user', $id_user);
+        $users->update($request->except('_token', '_method'));
         return redirect()->route('user.index');
     }
 
@@ -113,11 +112,8 @@ class UserFEController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy ($id)
+    public function destroy($id)
     {
-       //
+        //
     }
-
-    
-    
 }
