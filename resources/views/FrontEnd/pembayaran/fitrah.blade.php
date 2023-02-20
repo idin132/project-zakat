@@ -49,7 +49,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="nama_muzakki">{{ __('Nama Lengkap') }}</label>
-                        <input type="text" class="form-control" name="nama_muzakki" value="{{ $user->name }}" required>
+                        <input type="text" class="form-control" name="nama_muzakki" value="{{ $user->nama_muzakki }}" required>
                     </div>
                 </div>
             </div>
