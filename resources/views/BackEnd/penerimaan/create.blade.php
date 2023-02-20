@@ -9,29 +9,23 @@
                     <form action="{{ route('penerimaan.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
-                        <!-- <div class="form-group">
-                            <label for="nama" class="col-md-4 col-form-label text-md-end">{{ __('Nama') }}</label>
-
-                            <div class="col-md-6">
-                                <select name="nama" id="nama" class="form-control">
-                                    <datalist id="nama_mustahiq">
-                                        @foreach ($mustahiq as $item)
-                                        <option value="{{ $item->nama_mustahiq }}" selected>{{ $item->nama_mustahiq }}</option>
-                                        @endforeach
-                                    </datalist>
-                                </select>
-                            </div>
-                        </div> -->
-
                         <div class="col-md-6">
-                            <label for="nama" class="form-label">Id Film</label>
-                            <input class="form-control" list="nama_mustahiq" id="nama" name="nama" placeholder="Type to search...">
-                            <datalist id="nama_mustahiq">
+                            <label for="id_mustahiq" class="form-label">Id Film</label>
+                            <input class="form-control" list="id_mustahiq" id="nama_mustahiq" name="id_mustahiq" placeholder="Type to search...">
+                            <datalist id="id_mustahiq">
                                 @foreach ($mustahiq as $item)
-                                <option value="{{ $item->nama_mustahiq }}" selected>{{ $item->nama_mustahiq }}</option>
+                                <option value="{{ $item->id_mustahiq }}" selected>{{ $item->nama_mustahiq }}</option>
                                 @endforeach
                             </datalist>
                         </div>
+
+                        <!-- <select name="id_mustahiq" id="id_mustahiq" required>
+                            @foreach(App\Models\mustahiq::pluck('nama_mustahiq', 'id_mustahiq') as $id_mustahiq => $name)
+                            <option value="{{ $id_mustahiq }}" {{ old('id_mustahiq') == $id_mustahiq ? 'selected' : '' }}>
+                                {{ $name }}
+                            </option>
+                            @endforeach
+                        </select> -->
 
                         <div class="form-group">
                             <label for="alamat" class="col-md-4 col-form-label text-md-end">{{ __('Alamat') }}</label>
