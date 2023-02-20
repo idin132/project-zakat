@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'name' => 'admin',
+            'nama_muzakki' => 'admin',
             'email' => 'admin@gmail.com',
             'no_hp' => '081111111',
             'alamat' => 'Alamat Admin',
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
         User::factory()->create([
-            'name' => 'Pydydyn',
+            'nama_muzakki' => 'Pydydyn',
             'email' => 'Pydydyn@gmail.com',
             'no_hp' => '081111111',
             'alamat' => 'Alamat Pydydyn',
