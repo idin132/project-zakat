@@ -10,8 +10,8 @@
             <form action="{{ route('registrasi.store') }}" method="post">
                             @csrf
             <div class="form-group">
-                <label for="name"></label>
-                <input type="text"  placeholder="Nama Lengkap" class="form-control" id="name" name="name">
+                <label for="nama_muzakki"></label>
+                <input type="text"  placeholder="Nama Lengkap" class="form-control" id="nama_muzakki" name="nama_muzakki">
             </div>
             <br />
             <div class="form-group">

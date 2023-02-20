@@ -22,12 +22,12 @@
                     <div class="row">
                         <div class="col">
                             <label for="beras">{{ __('Harga Beras') }}</label>
-                            <input type="text" class="form-control" name="beras" id="bil1">
+                            <input type="number" class="form-control" name="beras" id="bil1">
                         </div>
 
                         <div class="col">
                             <label for="jumlah">{{ __('Jumlah') }}</label>
-                            <input type="text" class="form-control" name="jumlah" id="jumlah" readonly>
+                            <input type="text" class="form-control" name="jumlah" id="jumlah" request>
                         </div>
                     </div>
                 </div>
