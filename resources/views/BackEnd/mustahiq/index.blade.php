@@ -39,7 +39,7 @@
             <tbody>
                 @foreach ($mustahiqs as $key=>$item)
                 <tr>
-                    <td style="font-size: 12px">{{$item->id}}</td>
+                    <td style="font-size: 12px">{{$item->id_mustahiq}}</td>
                     <td style="font-size: 12px">{{$item->nama_mustahiq}}</td>
                     <td style="font-size: 12px">{{$item->tgl_lahir}}</td>
                     <td style="font-size: 12px">{{$item->alamat}}</td>
@@ -47,16 +47,16 @@
                     <td>
 
 
-                        <form action="{{ route('mustahiq.destroy', $item->id) }}" method="post">
+                        <form action="{{ route('mustahiq.destroy', $item->id_mustahiq) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button style="font-size: 12px" type="submit" class="btn btn-danger">
                                   <i class="fa fa-trash"></i>
                                 </button>
-                                <a style="font-size: 12px" href="{{ route('mustahiq.edit', $item->id) }}"class="btn btn-warning">
+                                <a style="font-size: 12px" href="{{ route('mustahiq.edit', $item->id_mustahiq) }}"class="btn btn-warning">
                                 <i class="fa fa-pencil"></i>
                               </a>
-                              <a style="font-size: 12px" href="{{ route('mustahiq.show', $item->id) }}" class="btn btn-primary">
+                              <a style="font-size: 12px" href="{{ route('mustahiq.show', $item->id_mustahiq) }}" class="btn btn-primary">
                                 <i class="fa fa-info"></i>
                               </a>
                               

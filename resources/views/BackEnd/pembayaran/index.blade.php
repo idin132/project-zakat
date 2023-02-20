@@ -28,7 +28,7 @@
                         <td style="font-size: 12px">{{ $item->id }}</td>
                         <td style="font-size: 12px">{{ $item->nama_zakat }}</td>
                         <td style="font-size: 12px">{{ $item->nama_muzakki }}</td>
-                        <td style="font-size: 12px">{{ $item->jumlah }}</td>
+                        <td style="font-size: 12px">Rp. {{ number_format($item->jumlah) }}</td>
                         <td style="font-size: 12px">{{ $item->metode_pembayaran }}</td>
                         <td>
                             @if ($item->bukti_pembayaran == null)

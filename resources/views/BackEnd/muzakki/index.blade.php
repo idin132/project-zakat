@@ -39,7 +39,7 @@
                 @foreach ($muzakkis as $key=>$muzakki)
                 <tr>
                     <td style="font-size: 12px">{{$muzakki->id}}</td>
-                    <td style="font-size: 12px">{{$muzakki->name}}</td>
+                    <td style="font-size: 12px">{{$muzakki->nama_muzakki}}</td>
                     <td style="font-size: 12px">{{$muzakki->no_hp}}</td>
                     <td style="font-size: 12px">{{$muzakki->alamat}}</td>
                     <td>

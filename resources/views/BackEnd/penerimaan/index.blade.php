@@ -29,7 +29,7 @@
             <thead>
                 <tr  style="font-size: 12px">
                     <th>NO</th>
-                    <th>Nama</th>
+                    <th>Nama Mustahiq</th>
                     <th>Alamat</th>
                     <th>Jumlah</th>
                     <th>Bukti</th>
@@ -41,9 +41,9 @@
                 @foreach ($penerimaan as $key=>$item)
                 <tr>
                     <td  style="font-size: 12px">{{$item->id}}</td>
-                    <td  style="font-size: 12px">{{$item->nama}}</td>
+                    <td  style="font-size: 12px">{{$item->mustahiq->nama_mustahiq}}</td>
                     <td  style="font-size: 12px">{{$item->alamat}}</td>
-                    <td  style="font-size: 12px">{{$item->jumlah}}</td>
+                    <td  style="font-size: 12px">{{number_format($item->jumlah)}}</td>
                     <td  style="font-size: 12px">@if($item->bukti == null) - @else <a href="{{ url('storage/foto/'.$item->bukti) }}" target="_blank" class="btn btn-dark">View</a> @endif</td>
                     <td  style="font-size: 12px">{{$item->created_at}}</td>
                     <td>
@@ -58,6 +58,9 @@
                                 <a  style="font-size: 12px" href="{{route ('penerimaan.edit', $item->id)}}" class="btn btn-warning">
                                     <i class="fa fa-pencil"></i>
                                   </a>
+                                  <a style="font-size: 12px" href="{{ route('penerimaan.show', $item->id_mustahiq) }}" class="btn btn-primary">
+                                <i class="fa fa-info"></i>
+                              </a>
                               </form>
                         
                     </td>
