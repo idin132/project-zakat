@@ -71,16 +71,16 @@
                                     </div>
                                 </div>
                             </div>
-    
+
                             <div class="col">
                                 <div class="card text-white bg-dark">
                                     <div class="card-header">
                                         <div class="bi bi-people-fill text-center">
-                                            Total Donasi Terkumpul
+                                            Total Zakat Fitrah
                                         </div>
                                     </div>
                                     <div class="card-body text-center">
-                                        Rp. {{ number_format($results) }}
+                                        Rp. {{ number_format($total_fitrah) }}
                                         <h5 class="card-title"></h5>
                                         <p class="card-text justify-content-end"></p>
                                     </div>
@@ -88,11 +88,11 @@
                                 <div class="card text-white bg-dark">
                                     <div class="card-header">
                                         <div class="bi bi-people-fill text-center">
-                                            Total Zakat Tersalurkan
+                                            Total Zakat Penghasilan
                                         </div>
                                     </div>
                                     <div class="card-body text-center">
-                                        Rp. {{ number_format($total_tersalurkan) }}
+                                        Rp. {{ number_format($total_penghasilan) }}
                                         <h5 class="card-title"></h5>
                                         <p class="card-text justify-content-end"></p>
                                     </div>
@@ -102,11 +102,57 @@
                                 <div class="card text-white bg-dark">
                                     <div class="card-header">
                                         <div class="bi bi-people-fill text-center">
-                                            Total Uang Yang Tersisa
+                                            Total Zakat Penghasilan Tersisa
                                         </div>
                                     </div>
                                     <div class="card-body text-center h5">
-                                        Rp. {{ number_format($results - $total_tersalurkan) }}
+                                        Rp. {{ number_format($total_penghasilan - $total_tersalurkan_penghasilan) }}
+                                        <h5 class="card-title"></h5>
+                                        <p class="card-text justify-content-end"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="card text-white bg-dark">
+                                    <div class="card-header">
+                                        <div class="bi bi-people-fill" style="text-align:center ;">
+                                            Total Zakat Fitrah Tersisa
+                                        </div>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        Rp. {{ number_format($total_fitrah - $total_tersalurkan_fitrah) }}
+                                        <h5 class="card-title"></h5>
+                                        <p class="card-text justify-content-end"></p>
+                                    </div>
+                                </div>
+                                <div class="card text-white bg-dark">
+                                    <div class="card-header text-center">
+                                        <div class="bi bi-people-fill">
+                                            Total Zakat Penghasilan Tersalurkan
+                                        </div>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        Rp. {{ number_format($total_tersalurkan_penghasilan) }}
+
+                                        <h5 class="card-title"></h5>
+                                        <p class="card-text justify-content-end"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col">
+                                <div class="card text-white bg-secondary">
+                                    <div class="card-header">
+                                        <div class="bi bi-cloud-arrow-down text-center">
+                                            Total Zakat Fitrah Tersalurkan
+                                        </div>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        Rp. {{number_format($total_tersalurkan_fitrah) }}
+
                                         <h5 class="card-title"></h5>
                                         <p class="card-text justify-content-end"></p>
                                     </div>

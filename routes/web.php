@@ -20,6 +20,7 @@ use App\Http\Controllers\BackEnd\VerifikasiController;
 use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
+use App\Http\Controllers\FrontEnd\NotificationController;
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -99,6 +100,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
         Route::get('pembayaran/fitrah', function () {
                 return view('FrontEnd.pembayaran.fitrah');
         });
+        Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+
 });
 
 
