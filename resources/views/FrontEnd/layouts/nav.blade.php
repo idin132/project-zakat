@@ -100,7 +100,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('notifications.index') }}">
                         <img src="{{ asset('img/notification-icon.png') }}" alt="Notifications" />
-                        <span class="badge badge-pill badge-danger">{{ auth()->user()->unreadNotifications->count() }}</span>
+                        {{-- <span class="badge badge-pill badge-danger">{{ auth()->user()->unreadNotifications->count() }}</span> --}}
                     </a>
                 </li>
             </ul>

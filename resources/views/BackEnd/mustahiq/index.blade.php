@@ -14,17 +14,10 @@
                     Tambah Data
                 </div>
             </div>
-        </div>
         </a>
-        <a href="{{ route('mustahiq.export') }}", class="text-white">
-        <div  style="font-size: 12px" class="col-md-12 mb-3">
-            <div class="card text-white" style="background-color: grey;">
-                <div class="card-body text-center">
-                    Print
-                </div>
-            </div>
+        <button class="btn btn-primary col" data-toggle="modal" data-target="#modalCetak" href="{{ route('filter.pembayaran') }}">Print<i class="fa fa-print" style="margin-left: 10px;"></i></button>
         </div>
-        </a>
+        
         <table class="table"id="maintable">
             <thead>
                 <tr style="font-size: 12px">
@@ -71,6 +64,33 @@
         </table>
 </div>
 </div>
+</div>
+
+<div class="modal fade" id="modalCetak" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <form method="GET" target="_blank" enctype="multipart/form-data" action="{{ route('filter.mustahiq') }}">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tanggal Masuk</label>
+                        <input type="date" class="form-control" id="tgl_masuk" name="tgl_masuk" request>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tanggal selesai</label>
+                        <input type="date" class="form-control" id="tgl_selesai" name="tgl_selesai" request>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <script>
     

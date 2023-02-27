@@ -143,6 +143,16 @@ class MustahiqController extends Controller
         return Excel::download(new MustahiqExport, 'BackEnd.Mustahiq.xlsx');
     }
 
+
+    public function mustahiq(Request $request)
+    {
+        // $sum_jumlah = pembayaran::sum('jumlah');
+        $tgl_masuk = $request->tgl_masuk;
+        $tgl_selesai = $request->tgl_selesai;
+        $data = mustahiq::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->get();
+        return view('BackEnd.laporan.mustahiq', compact('data', 'tgl_masuk', 'tgl_selesai'));
+    }
+
     
     
 }
