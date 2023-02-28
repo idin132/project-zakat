@@ -69,6 +69,8 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
 
 
         Route::get('print/muzakki', [MuzakkiController::class, 'export'])->name('muzakki.export');
+        Route::get('filter/muzakki', [MuzakkiController::class, 'muzakki'])->name('filter.muzakki');
+
         Route::get('print/pembayaran', [PembayaranController::class, 'export'])->name('pembayaran.export');
         Route::get('print/penerimaan', [PenerimaanController::class, 'export'])->name('penerimaan.export');
         Route::get('admin/update', [MuzakkiController::class, 'update'])->name('muzakki.');

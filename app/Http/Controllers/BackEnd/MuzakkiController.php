@@ -155,4 +155,13 @@ class MuzakkiController extends Controller
     {
         return Excel::download(new MuzakkiExport, 'Muzakki.xlsx');
     }
+
+    public function muzakki(Request $request)
+    {
+        $tgl_masuk = $request->tgl_masuk;
+        $tgl_selesai = $request->tgl_selesai;
+        $data = User::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->get();
+        return view('BackEnd.laporan.muzakki', compact('data', 'tgl_masuk', 'tgl_selesai'));
+    }
+
 }
