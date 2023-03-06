@@ -4,7 +4,6 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
     <script src="{{ asset('assets/js/owl.carousel.js') }}"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $('.owl-carousel').owlCarousel({
@@ -30,9 +29,5 @@
                 infinite: true,
                 slidesToShow: 3,
             });
-        });
-        $(window).on('load',function(){
-            $(".loader").fadeOut(4000);
-            $(".content").fadeIn(4000);
         });
     </script>
