@@ -24,6 +24,7 @@
                     <th>NO</th>
                     <th>Nama Mustahiq</th>
                     <th>Tanggal Lahir</th>
+                    <th>Usia</th>
                     <th>Alamat</th>
                     <th>Tanggal Masuk</th>
                     <th>Action</th>
@@ -35,6 +36,7 @@
                     <td style="font-size: 12px">{{$item->id_mustahiq}}</td>
                     <td style="font-size: 12px">{{$item->nama_mustahiq}}</td>
                     <td style="font-size: 12px">{{$item->tgl_lahir}}</td>
+                    <td style="font-size: 12px">{{$item->usia}}</td>
                     <td style="font-size: 12px">{{$item->alamat}}</td>
                     <td style="font-size: 12px">{{$item->created_at}}</td>
                     <td>

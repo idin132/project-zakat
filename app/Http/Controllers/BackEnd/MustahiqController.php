@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MustahiqExport;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+
 
 class MustahiqController extends Controller
 {
@@ -18,9 +20,18 @@ class MustahiqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index ()
+    public function index() // function usia atau fungsi usia //
     {
-        $mustahiqs = mustahiq::all();
+
+        $mustahiqs = DB::table('mustahiq')
+            ->select('id_mustahiq','nik', 'nama_mustahiq', 'jenis_kelamin', 'tgl_lahir', 'alamat', 'agama', 'pekerjaan', 'penghasilan', 'jumlah_anak', 'ashnaf', 'created_at', DB::raw('usia(tgl_lahir) AS usia'))
+            ->get();
+
+        $results = DB::select('SELECT id_mustahiq FROM mustahiq');
+        foreach ($results as $result) {
+            echo $result->id_mustahiq;
+        }
+
         return view('BackEnd.mustahiq.index', compact('mustahiqs'));
     }
 
@@ -29,7 +40,7 @@ class MustahiqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create ()
+    public function create()
     {
         $mustahiqr = mustahiq::all();
         return view('BackEnd.mustahiq.create', compact('mustahiqr'));
@@ -41,7 +52,7 @@ class MustahiqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store (Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'nik' => 'required',
@@ -78,19 +89,19 @@ class MustahiqController extends Controller
      * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function show ($id_mustahiq)
+    public function show($id_mustahiq)
     {
         $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq)->first();
-        return view('BackEnd.mustahiq.detail', compact('mustahiqs'));  
+        return view('BackEnd.mustahiq.detail', compact('mustahiqs'));
     }
 
-     /**
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function edit ($id_mustahiq)
+    public function edit($id_mustahiq)
     {
         $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq)->first();
         return view('BackEnd.mustahiq.show', [
@@ -105,7 +116,7 @@ class MustahiqController extends Controller
      * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function update (Request $request, $id_mustahiq)
+    public function update(Request $request, $id_mustahiq)
     {
         $this->validate($request, [
             'nik',
@@ -121,7 +132,7 @@ class MustahiqController extends Controller
         ]);
 
         $mustahiqs = mustahiq::where('id_mustahiq', $id_mustahiq);
-        $mustahiqs->update($request->except('_token','_method'));
+        $mustahiqs->update($request->except('_token', '_method'));
         return redirect()->route('mustahiq.index');
     }
 
@@ -131,7 +142,7 @@ class MustahiqController extends Controller
      * @param  int  $id_mustahiq
      * @return \Illuminate\Http\Response
      */
-    public function destroy ($id_mustahiq)
+    public function destroy($id_mustahiq)
     {
         $mustahiqs = mustahiq::find($id_mustahiq);
         $mustahiqs->delete();
@@ -152,7 +163,4 @@ class MustahiqController extends Controller
         $data = mustahiq::whereBetween('created_at', [$tgl_masuk, $tgl_selesai])->get();
         return view('BackEnd.laporan.mustahiq', compact('data', 'tgl_masuk', 'tgl_selesai'));
     }
-
-    
-    
 }
