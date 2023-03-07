@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="tgl_lahir">{{ __('Tanggal Lahir') }}</label>
-                                        <input type="text" class="form-control" name="tgl_lahir" required>    
+                                        <input type="date" class="form-control" name="tgl_lahir" required>    
                                     </div>
                                 </div>
                             </div>
