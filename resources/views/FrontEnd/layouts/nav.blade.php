@@ -71,6 +71,7 @@
                         <a class="dropdown-item" href="{{ route('penghasilan.index') }}">Zakat Penghasilan</a>
                     </div>
                 </li>
+                <!-- PERCABANGAN -->
                 @if (Auth::user())
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -14,6 +14,15 @@
                             </div>
                         </div>
                 </a>
+                <a href="{{ route('mustahiq.export') }}", class="text-white">
+                    <div style="font-size: 12px" class="col-md-12 mb-3">
+                        <div class="card text-white" style="background-color: grey;">
+                            <div class="card-body text-center">
+                                Print
+                            </div>
+                        </div>
+                    </div>
+                    </a>
                 <button class="btn btn-primary col" data-toggle="modal" data-target="#modalCetak"
                     href="{{ route('filter.pembayaran') }}">Print<i class="fa fa-print"
                         style="margin-left: 10px;"></i></button>
@@ -32,6 +41,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Looping -->
                     @foreach ($mustahiqs as $key => $item)
                         <tr>
                             <td style="font-size: 12px">{{ $item->id_mustahiq }}</td>

@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </a>
-                <!-- <a href="{{ route('penerimaan.export') }}", class="text-white"> -->
+                <a href="{{ route('penerimaan.export') }}", class="text-white">
                 <div style="font-size: 12px" class="col-md-12 mb-3">
                     <div class="card text-white" style="background-color: grey;">
                         <div class="card-body text-center">

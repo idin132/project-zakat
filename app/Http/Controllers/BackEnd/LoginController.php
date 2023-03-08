@@ -12,6 +12,7 @@ class LoginController extends Controller
 {
     public function login()
     {
+        // Statement/Conditional IF ELSE
         if (Auth::check()){
             return redirect('/admin');
         }else{
