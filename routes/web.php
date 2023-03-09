@@ -81,7 +81,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('admin/zakat', ZakatController::class);
         Route::resource('admin/penerimaan', PenerimaanController::class);
 
-        Route::resource('admin/pembayaran', VerifikasiController::class);
+        Route::resource('admin/pembayaran', PembayaranController::class);
         Route::resource('admin/verif', VerifController::class);
 
         Route::get('admin/update', [VerifController::class], 'update')->name('verif.');
