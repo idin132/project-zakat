@@ -50,7 +50,7 @@
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         @if ($item->status == 1)
-                                            <a href="{{ url('status', $item->id) }}">
+                                            <a href="{{ url('admin/status', $item->id) }}">
                                                 <button style="font-size: 10px" class="btn btn-success mx-2"
                                                     onclick="return confirm('Pastikan data sudah benar!')">
                                                     <i class="fa fa-check"></i>
@@ -62,7 +62,7 @@
                                                 </button>
                                             </a>
                                         @else
-                                            <a href="{{ url('status', $item->id) }}">
+                                            <a href="{{ url('admin/status', $item->id) }}">
                                                 <button style="font-size: 10px" class="btn btn-danger"
                                                     onclick="return confirm('Yakin ingin mengubah status ini?')">
                                                     <i class="fa fa-times"></i>
