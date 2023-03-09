@@ -21,6 +21,8 @@ use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
 use App\Http\Controllers\FrontEnd\NotificationController;
+use App\Http\Controllers\BackEnd\LogController;
+
 
 // |--------------------------------------------------------------------------
 // | Web Routes
@@ -92,6 +94,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('laporan', LaporanController::class);
         Route::get('admin/backup', [LaporanController::class, 'backup'])->name('backup');
         Route::get('print-pembayaran', [LaporanController::class, 'pembayaran'])->name('pembayaran.print');
+        Route::get('admin/log', [LogController::class, 'index'])->name('log.index');
 });
 
 Route::group(['middleware' => ['auth', 'role:user']], function () {

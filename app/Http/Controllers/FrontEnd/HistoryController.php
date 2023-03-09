@@ -26,7 +26,6 @@ class HistoryController extends Controller
     public function index()
     {
         $history = pembayaran::where('email', Auth::user()->email)->paginate(10);
-        // $history = Pembayaran::whereNotIn('id', [Auth::id()])->paginate(10);
         return view('FrontEnd.history.index', compact('history'));
     }
 }

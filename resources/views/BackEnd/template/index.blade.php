@@ -62,6 +62,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{ route('log.index') }}"><i class="menu-icon fa fa-list-alt"></i>Log Data</a>
+                    </li>
+
+                    <li class="nav-item">
                         <button type="button" class="btn btn-dark" onclick="location.href='{{ route('backup') }}'">Backup Database</button>
                     </li>
                     
@@ -139,6 +143,9 @@
         });
         $('#verif').DataTable({
             "order": [[ 7, "desc" ]] // assuming the "created_at" column is the third column (index 2)
+        });
+        $('#log').DataTable({
+            "order": [[ 3, "desc" ]] // assuming the "created_at" column is the third column (index 2)
         });
     });
 </script>
