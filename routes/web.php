@@ -79,21 +79,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('admin/mustahiq', MustahiqController::class);
         Route::get('admin/update', [ZakatController::class], 'update')->name('zakat.');
         Route::resource('admin/zakat', ZakatController::class);
-        Route::resource('admin/pembayaran', PembayaranController::class);
         Route::resource('admin/penerimaan', PenerimaanController::class);
 
-        Route::resource('admin/verifikasi', VerifikasiController::class);
-        Route::resource('admin/pembayaran', PembayaranController::class);
+        Route::resource('admin/pembayaran', VerifikasiController::class);
         Route::resource('admin/verif', VerifController::class);
 
-
-        Route::resource('admin/verif', VerifController::class);
         Route::get('admin/update', [VerifController::class], 'update')->name('verif.');
         Route::resource('admin/user', UserController::class);
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
         Route::get('filter/pembayaran', [PembayaranController::class, 'pembayaran'])->name('filter.pembayaran');
         Route::resource('laporan', LaporanController::class);
+        Route::get('admin/backup', [LaporanController::class, 'backup'])->name('backup');
         Route::get('print-pembayaran', [LaporanController::class, 'pembayaran'])->name('pembayaran.print');
 });
 
