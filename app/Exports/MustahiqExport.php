@@ -6,6 +6,7 @@ use App\Models\mustahiq;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
+// Interface
 class MustahiqExport implements FromCollection, WithHeadings
 {
     /**
