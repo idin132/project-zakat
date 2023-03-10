@@ -5,7 +5,6 @@ use App\Http\Controllers\BackEnd\LoginController;
 use App\Http\Controllers\BackEnd\MustahiqController;
 use App\Http\Controllers\BackEnd\MuzakkiController;
 use App\Http\Controllers\BackEnd\DashboardController;
-use App\Http\Controllers\BackEnd\ZakatController;
 use App\Http\Controllers\BackEnd\PembayaranController;
 use App\Http\Controllers\BackEnd\PenerimaanController;
 use App\Http\Controllers\BackEnd\UserController;
@@ -16,7 +15,6 @@ use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
 use App\Http\Controllers\BackEnd\LaporanController;
-use App\Http\Controllers\BackEnd\VerifikasiController;
 use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
@@ -65,7 +63,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('admin', [DashboardController::class, 'dashboard'])->name('dashboard');
         Route::get('update', [VerifController::class], 'update')->name('verif.');
         Route::get('update', [UserController::class], 'update')->name('user.');
-        Route::get('status/{id}', [PembayaranController::class, 'status']);
         Route::get('print/mustahiq', [MustahiqController::class, 'export'])->name('mustahiq.export');
         Route::get('filter/mustahiq', [MustahiqController::class, 'mustahiq'])->name('filter.mustahiq');
 
@@ -80,7 +77,6 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('admin/update', [MustahiqController::class, 'update'])->name('mustahiq.');
         Route::resource('admin/mustahiq', MustahiqController::class);
         Route::get('admin/update', [ZakatController::class], 'update')->name('zakat.');
-        Route::resource('admin/zakat', ZakatController::class);
         Route::resource('admin/penerimaan', PenerimaanController::class);
 
         Route::resource('admin/pembayaran', PembayaranController::class);
@@ -91,9 +87,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
         Route::get('filter/pembayaran', [PembayaranController::class, 'pembayaran'])->name('filter.pembayaran');
-        Route::resource('laporan', LaporanController::class);
         Route::get('admin/backup', [LaporanController::class, 'backup'])->name('backup');
-        Route::get('print-pembayaran', [LaporanController::class, 'pembayaran'])->name('pembayaran.print');
         Route::get('admin/log', [LogController::class, 'index'])->name('log.index');
 });
 

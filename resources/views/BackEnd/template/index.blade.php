@@ -50,10 +50,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('zakat.index') }}"><i class="menu-icon fa fa-handshake-o"></i>Zakat</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a href="{{ route('verif.index') }}"><i class="menu-icon fa fa-money"></i>Verifikasi Pembayaran</a>
                     </li>
 

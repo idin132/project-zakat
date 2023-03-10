@@ -34,14 +34,5 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('774299421196061594558258214156586648Xz'),
             'role' => 'admin',
         ]);
-
-        zakat::create([
-            'id_zakat' => 'ZK01',
-            'kategori_zakat' => 'Zakat Penghasilan',
-        ]);
-        zakat::create([
-            'id_zakat' => 'ZK02',
-            'kategori_zakat' => 'Zakat Fitrah',
-        ]);
     }
 }
