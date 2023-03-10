@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::resource('admin/penerimaan', PenerimaanController::class);
 
         Route::resource('admin/pembayaran', PembayaranController::class);
+        Route::get('admin/pembayaran/{id}', [PembayaranController::class, 'update'])->name('pembayaran.');
         Route::resource('admin/verif', VerifController::class);
 
         Route::get('admin/update', [VerifController::class], 'update')->name('verif.');

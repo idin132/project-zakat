@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\BackEnd;
 
-use App\Models\muzakki;
 use Illuminate\Http\Request;
 use App\Models\pembayaran;
-use App\Models\zakat;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PembayaranExport;
 use Illuminate\Support\Facades\Storage;
@@ -35,13 +33,8 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        $zakat = zakat::all();
-        $muzakki = muzakki::all();
 
-        return view('BackEnd.pembayaran.create', [
-            'zakat' => $zakat,
-            'muzakki' => $muzakki,
-        ]);
+        return view('BackEnd.pembayaran.create');
     }
 
     /**
@@ -54,11 +47,12 @@ class PembayaranController extends Controller
     {
         $this->validate($request, [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
+            'no_hp',
+            'email',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
-            'status' => 'required',
         ]);
 
         $image = $request->file('bukti_pembayaran');
@@ -67,10 +61,11 @@ class PembayaranController extends Controller
         $pembayarans = pembayaran::create([
             'nama_zakat' => $request->nama_zakat,
             'nama_muzakki' => $request->nama_muzakki,
+            'no_hp' => $request->no_hp,
+            'email' => $request->email,
             'jumlah' => $request->jumlah,
             'metode_pembayaran' => $request->metode_pembayaran,
             'bukti_pembayaran' => $image->hashName(),
-            'status' => $request->status,
 
         ]);
 
@@ -86,8 +81,8 @@ class PembayaranController extends Controller
 
     public function show($id)
     {
-        $pembayarans = pembayaran::oldest('id')->simplepaginate(1);
-        return view('BackEnd.pembayaran.detail', compact('pembayarans'));
+        $pembayaran = pembayaran::oldest('id')->simplepaginate(1);
+        return view('BackEnd.pembayaran.show', compact('pembayaran'));
     }
 
     /**
@@ -99,9 +94,9 @@ class PembayaranController extends Controller
 
     public function edit($id)
     {
-        $pembayarans = pembayaran::where('id', $id)->first();
+        $pembayaran = pembayaran::where('id', $id)->first();
         return view('BackEnd.pembayaran.show', [
-            "pembayarans" => $pembayarans,
+            "pembayaran" => $pembayaran,
         ]);
     }
 
@@ -117,16 +112,28 @@ class PembayaranController extends Controller
     {
         $this->validate($request, [
             'nama_zakat' => 'required',
-            'nama_mustahiq' => 'required',
+            'nama_muzakki' => 'required',
+            'no_hp',
+            'email',
             'jumlah' => 'required',
             'metode_pembayaran' => 'required',
             'bukti_pembayaran' => 'required',
-            'status' => 'required',
         ]);
+        $image = $request->file('bukti_pembayaran');
+        $image->storeAs('public/foto', $image->hashName());
+        $request = pembayaran::create([
+            'nama_zakat' => $request->nama_zakat,
+            'nama_muzakki' => $request->nama_muzakki,
+            'no_hp' => $request->no_hp,
+            'email' => $request->email,
+            'jumlah' => $request->jumlah,
+            'metode_pembayaran' => $request->metode_pembayaran,
+            'bukti_pembayaran' => $image->hashName(),
 
-        $pembayarans = pembayaran::where('id', $id);
-        $pembayarans->update($request->except('_token', '_method'));
-        return redirect()->route('pembayaranp.index');
+        ]);
+        $pembayaran = pembayaran::where('id', $id);
+        $pembayaran->update($request->except('_token', '_method'));
+        return redirect()->route('pembayaran.index');
     }
 
     /**

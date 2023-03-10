@@ -9,7 +9,8 @@
                 <button class="btn btn-primary" data-toggle="modal" data-target="#modalCetak"
                     href="{{ route('filter.pembayaran') }}">Print<i class="fa fa-print"
                         style="margin-left: 10px;"></i></button>
-
+                <button type="button" class="btn btn-success" onclick="location.href='{{ route('pembayaran.create') }}'"><i class="fa fa-print"
+                        style="margin-left: 10px;"></i></button>
                 <br><br>
                 <table class="table" id="maintable">
                     <thead>
@@ -50,6 +51,10 @@
                                             onclick="return confirm('Yakin ingin menghapus data ini?')">
                                             <i class="fa fa-solid fa-trash"></i>
                                         </button>
+                                        <a style="font-size: 12px"
+                                            href="{{ route('pembayaran.edit', $item->id) }}"class="btn btn-warning">
+                                        <i class="fa fa-pencil"></i>
+                                        </a>
                                     </form>
                                 </td>
                             </tr>
