@@ -14,7 +14,7 @@ use App\Http\Controllers\FrontEnd\LoginFEController;
 use App\Http\Controllers\FrontEnd\UserFEController;
 use App\Http\Controllers\FrontEnd\KalkulatorController;
 use App\Http\Controllers\FrontEnd\PenghasilanController;
-use App\Http\Controllers\BackEnd\LaporanController;
+use App\Http\Controllers\BackEnd\BackupController;
 use App\Http\Controllers\FrontEnd\HistoryController;
 use App\Http\Controllers\FrontEnd\ChangePasswordController;
 use App\Http\Controllers\FrontEnd\ProfileController;
@@ -87,7 +87,7 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
         Route::get('admin/update', [UserController::class], 'update')->name('user.');
         Route::get('admin/status/{id}', [PembayaranController::class, 'status']);
         Route::get('filter/pembayaran', [PembayaranController::class, 'pembayaran'])->name('filter.pembayaran');
-        Route::get('admin/backup', [LaporanController::class, 'backup'])->name('backup');
+        Route::resource('admin/backup', BackupController::class);
         Route::get('admin/log', [LogController::class, 'index'])->name('log.index');
 });
 

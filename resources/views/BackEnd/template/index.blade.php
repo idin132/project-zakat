@@ -56,16 +56,14 @@
                     <li class="nav-item">
                         <a href="{{ route('user.index') }}"><i class="menu-icon fa fa-cog"></i>User Management</a>
                     </li>
-
+                    
                     <li class="nav-item">
                         <a href="{{ route('log.index') }}"><i class="menu-icon fa fa-list-alt"></i>Log Data</a>
                     </li>
-
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-dark" onclick="location.href='{{ route('backup') }}'">Backup Database</button>
-                    </li>
                     
-
+                    <li class="nav-item">
+                        <a href="{{ route('backup.index') }}"><i class="menu-icon fa fa-refresh"></i>Backup Database</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
