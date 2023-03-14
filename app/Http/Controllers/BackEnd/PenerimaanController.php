@@ -36,7 +36,6 @@ class PenerimaanController extends Controller
         $total = penerimaan::sum('jumlah');
         $penerimaan = penerimaan::with('mustahiq')->get();
         $mustahiq = mustahiq::all();
-        $zakat = zakat::all();
 
         return view('BackEnd.penerimaan.create', [
             'penerimaan' => $penerimaan, compact('total', 'zakat'),

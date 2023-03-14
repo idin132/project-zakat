@@ -44,18 +44,7 @@
                                 <input type="nama" class="form-control" name="jumlah" required>
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                                <label for="Jenis Zakat"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Jenis Zakat') }}</label>
-
-                                <div class="col-md-6">
-                                    <select name="jenis_zakat" id="jenis_zakat" class="form-control">
-                                        @foreach ($zakat as $zakat)
-                                            <option value="{{ $zakat->kategori_zakat }}"> {{ $zakat->kategori_zakat }} </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div> -->
+                        
                         <div class="form-group">
                             <label for="bukti" class="col-md-4 col-form-label text-md-end">{{ __('Bukti') }}</label>
 
